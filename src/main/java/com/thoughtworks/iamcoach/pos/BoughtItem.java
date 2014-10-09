@@ -2,9 +2,9 @@ package com.thoughtworks.iamcoach.pos;
 
 public class BoughtItem {
   private String barcode;
-  private int number;
+  private Double number;
 
-  public BoughtItem(String barcode, int number) {
+  public BoughtItem(String barcode, Double number) {
     this.barcode = barcode;
     this.number = number;
   }
@@ -16,15 +16,15 @@ public class BoughtItem {
     this.barcode = barcode;
   }
 
-  public int getNumber() {
+  public Double getNumber() {
     return number;
   }
 
-  public void setNumber(int number) {
+  public void setNumber(Double number) {
     this.number = number;
   }
 
   public void addItemNumberByOne() {
-    this.number++;
+    this.number += 1 ;
   }
 }
