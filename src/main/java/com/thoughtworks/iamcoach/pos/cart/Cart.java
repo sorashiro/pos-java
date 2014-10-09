@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class cart {
+public class Cart {
     private static String CARTFILE = "src/main/java/resources/cart.txt";
     public  ArrayList getBarcodes() throws IOException {
         ArrayList arrayList = new ArrayList<String>();
