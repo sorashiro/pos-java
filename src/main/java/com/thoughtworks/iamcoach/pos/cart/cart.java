@@ -1,4 +1,4 @@
-package com.thoughtworks.cart;
+package com.thoughtworks.iamcoach.pos.cart;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class cart {
 
     public static ArrayList getBarcodes() throws IOException {
-        ArrayList arrayList = new ArrayList();
+        ArrayList arrayList = new ArrayList<String>();
         FileReader read = new FileReader("src/main/java/com/thoughtworks/cart/cart.txt");
         BufferedReader br = new BufferedReader(read);
         String row;
