@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class cart {
 
-    public static ArrayList getBarcodes() throws IOException {
+    public  ArrayList getBarcodes() throws IOException {
         ArrayList arrayList = new ArrayList<String>();
         FileReader read = new FileReader("src/main/java/com/thoughtworks/cart/cart.txt");
         BufferedReader br = new BufferedReader(read);
@@ -17,9 +17,5 @@ public class cart {
             arrayList.add(row);
         }
         return arrayList;
-    }
-
-    public static void main(String[] args) throws IOException {
-        getBarcodes();
     }
 }
