@@ -9,7 +9,7 @@ public class cart {
 
     public  ArrayList getBarcodes() throws IOException {
         ArrayList arrayList = new ArrayList<String>();
-        FileReader read = new FileReader("src/main/java/com/thoughtworks/cart/cart.txt");
+        FileReader read = new FileReader("src/main/java/resources/cart.txt");
         BufferedReader br = new BufferedReader(read);
         String row;
 
