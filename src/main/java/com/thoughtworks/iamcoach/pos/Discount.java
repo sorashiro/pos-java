@@ -11,7 +11,7 @@ public class Discount {
   private static String SECOND_HALF_PRICE_PROMOTION = "src/main/resources/second_half_price_promotion.txt";
   private static ArrayList arrayList = new ArrayList();
 
-  public static void getPromotions() throws IOException {
+  public ArrayList getPromotions() throws IOException {
     txtToArray(BUY_TWO_GET_ONE_FREE, "buy_two_get_one_free");
     txtToArray(SECOND_HALF_PRICE_PROMOTION, "second_half_price");
 
@@ -24,9 +24,11 @@ public class Discount {
       DiscountItem discountItem = new DiscountItem(cartBarcode[0], "discount" + cartBarcode[1]);
       arrayList.add(discountItem);
     }
+
+    return arrayList;
   }
 
-  private static void txtToArray(String path, String type) throws IOException {
+  private void txtToArray(String path, String type) throws IOException {
     FileReader read = new FileReader(path);
     BufferedReader br = new BufferedReader(read);
     String row;
@@ -37,9 +39,4 @@ public class Discount {
       System.out.print(discountItem.getBarcode());
     }
   }
-
-  public static void main(String[] args) throws IOException {
-    getPromotions();
-  }
-
 }
