@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Discount {
-    private static String DISCOUNT = "src/main/java/resources/discount_promotion.txt";
-    private static String BUY_TWO_GET_ONE_FREE = "src/main/java/resources/buy_two_get_one_promotion.txt";
-    private static String SECOND_HALF_PRICE_PROMOTION = "src/main/java/resources/second_half_price_promotion.txt";
-    private ArrayList arrayList = new ArrayList();
+    private static String DISCOUNT = "src/main/resources/discount_promotion.txt";
+    private static String BUY_TWO_GET_ONE_FREE = "src/main/resources/buy_two_get_one_free_promotion.txt";
+    private static String SECOND_HALF_PRICE_PROMOTION = "src/main/resources/second_half_price_promotion.txt";
+    private static ArrayList arrayList = new ArrayList();
 
-    public void getPromotions () throws IOException {
+    public static void getPromotions() throws IOException {
         FileReader discountRead = new FileReader(DISCOUNT);
         FileReader buyTwoRead = new FileReader(BUY_TWO_GET_ONE_FREE);
         FileReader halfPriceRead = new FileReader(SECOND_HALF_PRICE_PROMOTION);
@@ -26,16 +26,22 @@ public class Discount {
             String[] cartBarcode = row.split(":");
             DiscountItem discountItem = new DiscountItem(cartBarcode[0], "discount" + cartBarcode[1]);
             arrayList.add(discountItem);
+            System.out.println(discountItem);
         }
         while ((row = buyTwoBr.readLine()) != null) {
             DiscountItem discountItem = new DiscountItem(row, "buy_two_get_one_free");
+            System.out.println(discountItem);
             arrayList.add(discountItem);
         }
         while ((row = halfPriceBr.readLine()) != null) {
             DiscountItem discountItem = new DiscountItem(row, "second_half_price");
             arrayList.add(discountItem);
         }
-    }
 
+        System.out.println("output" + arrayList);
+    }
+    public static void main(String[] args) throws IOException {
+        getPromotions();
+    }
 
 }
