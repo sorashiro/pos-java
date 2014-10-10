@@ -23,4 +23,11 @@ public class Pos {
       boughtItemList.add(boughtItem);
     }
   }
+
+  private void findPromotion() throws IOException {
+    Cart cart = new Cart();
+    Discount discount = new Discount();
+    ArrayList cartItems = cart.getBarcodes();
+    ArrayList promotions = discount.getPromotions();
+  }
 }
