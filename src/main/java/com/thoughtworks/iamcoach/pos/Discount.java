@@ -24,7 +24,6 @@ public class Discount {
       DiscountItem discountItem = new DiscountItem(cartBarcode[0], "discount" + cartBarcode[1]);
       arrayList.add(discountItem);
     }
-
     return arrayList;
   }
 
@@ -36,7 +35,6 @@ public class Discount {
     while ((row = br.readLine()) != null) {
       DiscountItem discountItem = new DiscountItem(row, type);
       arrayList.add(discountItem);
-      System.out.print(discountItem.getBarcode());
     }
   }
 }
