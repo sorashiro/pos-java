@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class ItemServer {
     private static String ITEMFILE = "src/main/resources/item.txt";
 
-    public static ArrayList getItems() throws IOException {
+    private ArrayList getItems() throws IOException {
         ArrayList arrayList = new ArrayList();
         FileReader read = new FileReader(ITEMFILE);
         BufferedReader br = new BufferedReader(read);
@@ -20,5 +20,16 @@ public class ItemServer {
             arrayList.add(item);
         }
         return arrayList;
+    }
+
+    public Item findItem(String barcode) throws IOException {
+        ArrayList<Item> items = getItems();
+        Item result = new Item();
+        for(Item item : items) {
+            if(barcode.equals(item.getBarcode())) {
+                result = item;
+            }
+        }
+        return result;
     }
 }
