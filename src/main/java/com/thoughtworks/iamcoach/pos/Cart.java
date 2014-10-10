@@ -1,4 +1,4 @@
-package com.thoughtworks.iamcoach.pos.cart;
+package com.thoughtworks.iamcoach.pos;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
