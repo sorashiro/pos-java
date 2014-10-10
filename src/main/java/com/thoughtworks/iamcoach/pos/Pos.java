@@ -13,7 +13,7 @@ public class Pos {
 
     for(String barcode : barcodes){
       int times = 0;
-      
+
       for (String anotherBarcode : barcodes){
         if(anotherBarcode.equals(barcode)){
           times++;
