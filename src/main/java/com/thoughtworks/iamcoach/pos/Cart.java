@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Cart {
-  private static String CARTFILE = "src/main/java/resources/cart.txt";
+  private static String CARTFILE = "src/main/resources/cart.txt";
 
-  public ArrayList<String> getBarcodes() throws IOException {
+  public static ArrayList<String> getBarcodes() throws IOException {
     ArrayList arrayList = new ArrayList<String>();
     FileReader read = new FileReader(CARTFILE);
     BufferedReader br = new BufferedReader(read);

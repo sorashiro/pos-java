@@ -9,17 +9,17 @@ public class Pos {
     ArrayList boughtItemList = new ArrayList();
     ArrayList<String> cartBarcodes = cart.getBarcodes();
 
-    for(String barcode : cartBarcodes){
+    for (String barcode : cartBarcodes) {
       int times = 0;
 
-      for (String anotherBarcode : cartBarcodes){
-        if(anotherBarcode.equals(barcode)){
+      for (String anotherBarcode : cartBarcodes) {
+        if (anotherBarcode.equals(barcode)) {
           times++;
         }
       }
 
       String[] barcodes = barcode.split(" ");
-      BoughtItem boughtItem = new BoughtItem(barcodes[0], Double.parseDouble(barcodes[1]) *times);
+      BoughtItem boughtItem = new BoughtItem(barcodes[0], Double.parseDouble(barcodes[1]) * times);
       boughtItemList.add(boughtItem);
     }
   }

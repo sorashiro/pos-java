@@ -26,6 +26,6 @@ public class BoughtItem {
   }
 
   public void addItemNumberByOne() {
-    this.number += 1 ;
+    this.number += 1;
   }
 }
