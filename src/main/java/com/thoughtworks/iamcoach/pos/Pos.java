@@ -4,22 +4,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Pos {
-  public void coutCart() throws IOException {
+  public void countCart() throws IOException {
     Cart cart = new Cart();
     ArrayList boughtItemList = new ArrayList();
-    ArrayList<String> barcodes = cart.getBarcodes();
+    ArrayList<String> cartBarcodes = cart.getBarcodes();
 
-    for(String barcode : barcodes){
+    for(String barcode : cartBarcodes){
       int times = 0;
 
-      for (String anotherBarcode : barcodes){
+      for (String anotherBarcode : cartBarcodes){
         if(anotherBarcode.equals(barcode)){
           times++;
         }
       }
 
-      String[] barcodeAndnumber = barcode.split(" ");
-      BoughtItem boughtItem = new BoughtItem(barcodeAndnumber[0], Double.parseDouble(barcodeAndnumber[1]) *times);
+      String[] barcodes = barcode.split(" ");
+      BoughtItem boughtItem = new BoughtItem(barcodes[0], Double.parseDouble(barcodes[1]) *times);
       boughtItemList.add(boughtItem);
     }
   }
