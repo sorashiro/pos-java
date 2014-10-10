@@ -27,7 +27,16 @@ public class Pos {
   private void findPromotion() throws IOException {
     Cart cart = new Cart();
     Discount discount = new Discount();
-    ArrayList cartItems = cart.getBarcodes();
-    ArrayList promotions = discount.getPromotions();
+    ArrayList<String> cartItems = cart.getBarcodes();
+    ArrayList<DiscountItem> promotions = discount.getPromotions();
+
+    for(String cartItem : cartItems){
+      for(DiscountItem promotion : promotions){
+        if(cartItem.equals(promotion.getBarcode())){
+
+          
+        }
+      }
+    }
   }
 }
