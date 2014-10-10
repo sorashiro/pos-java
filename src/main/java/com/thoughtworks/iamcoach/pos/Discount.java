@@ -12,14 +12,11 @@ public class Discount {
   private static ArrayList arrayList = new ArrayList();
 
   public static void getPromotions() throws IOException {
+    txtToArray(BUY_TWO_GET_ONE_FREE, "buy_two_get_one_free");
+    txtToArray(SECOND_HALF_PRICE_PROMOTION, "second_half_price");
+
     FileReader discountRead = new FileReader(DISCOUNT);
-    FileReader buyTwoRead = new FileReader(BUY_TWO_GET_ONE_FREE);
-    FileReader halfPriceRead = new FileReader(SECOND_HALF_PRICE_PROMOTION);
-
     BufferedReader discountBr = new BufferedReader(discountRead);
-    BufferedReader buyTwoBr = new BufferedReader(buyTwoRead);
-    BufferedReader halfPriceBr = new BufferedReader(halfPriceRead);
-
     String row;
 
     while ((row = discountBr.readLine()) != null) {
@@ -27,13 +24,17 @@ public class Discount {
       DiscountItem discountItem = new DiscountItem(cartBarcode[0], "discount" + cartBarcode[1]);
       arrayList.add(discountItem);
     }
-    while ((row = buyTwoBr.readLine()) != null) {
-      DiscountItem discountItem = new DiscountItem(row, "buy_two_get_one_free");
+  }
+
+  private static void txtToArray(String path, String type) throws IOException {
+    FileReader read = new FileReader(path);
+    BufferedReader br = new BufferedReader(read);
+    String row;
+
+    while ((row = br.readLine()) != null) {
+      DiscountItem discountItem = new DiscountItem(row, type);
       arrayList.add(discountItem);
-    }
-    while ((row = halfPriceBr.readLine()) != null) {
-      DiscountItem discountItem = new DiscountItem(row, "second_half_price");
-      arrayList.add(discountItem);
+      System.out.print(discountItem.getBarcode());
     }
   }
 
