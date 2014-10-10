@@ -8,14 +8,16 @@ import java.util.ArrayList;
 public class ItemServer {
     private static String ITEMFILE = "src/main/resources/item.txt";
 
-    public ArrayList<String> getBarcodes() throws IOException {
-        ArrayList arrayList = new ArrayList<String>();
+    public static ArrayList getItems() throws IOException {
+        ArrayList arrayList = new ArrayList();
         FileReader read = new FileReader(ITEMFILE);
         BufferedReader br = new BufferedReader(read);
         String row;
 
         while ((row = br.readLine()) != null) {
-            arrayList.add(row);
+            String[] stringItem = row.split(" ");
+            Item item = new Item(stringItem[0], stringItem[1], stringItem[2], Double.parseDouble(stringItem[3]));
+            arrayList.add(item);
         }
         return arrayList;
     }
