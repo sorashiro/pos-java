@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Pos {
-  public void countCart() throws IOException {
+  public ArrayList countCart() throws IOException {
     Cart cart = new Cart();
     ArrayList boughtItemList = new ArrayList();
     ArrayList<String> cartBarcodes = cart.getBarcodes();
@@ -22,6 +22,7 @@ public class Pos {
       BoughtItem boughtItem = new BoughtItem(barcodes[0], Double.parseDouble(barcodes[1]) * times);
       boughtItemList.add(boughtItem);
     }
+    return boughtItemList;
   }
 
   private void findPromotion() throws IOException {
