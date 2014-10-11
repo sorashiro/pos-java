@@ -9,6 +9,8 @@ public class BoughtItem {
     this.number = number;
   }
 
+  public BoughtItem(){}
+
   public String getBarcode() {
     return barcode;
   }
