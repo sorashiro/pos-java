@@ -21,7 +21,7 @@ public class Discount {
 
     while ((row = discountBr.readLine()) != null) {
       String[] cartBarcode = row.split(":");
-      DiscountItem discountItem = new DiscountItem(cartBarcode[0], "discount" + cartBarcode[1]);
+      DiscountItem discountItem = new DiscountItem(cartBarcode[0], "discount:" + cartBarcode[1]);
       arrayList.add(discountItem);
     }
     return arrayList;
