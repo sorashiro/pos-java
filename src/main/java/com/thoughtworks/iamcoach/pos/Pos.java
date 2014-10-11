@@ -57,5 +57,25 @@ public class Pos {
     }
   }
 
+  private Double calculateBuyTwo(Item item, BoughtItem boughtItem) {
+    Double number = boughtItem.getNumber();
+    Double payNumber = (number / 2) + (number % 2);
 
+    return item.getPrice() * payNumber;
+  }
+
+  private Double calculateHalfPrice(Item item, BoughtItem boughtItem) {
+    Double number = boughtItem.getNumber();
+    Double total = item.getPrice() * number;
+    Double discountTotal = (0.5 * item.getPrice()) * (number / 2);
+
+    return total - discountTotal;
+  }
+
+  private Double calculateDiscount(Item item, BoughtItem boughtItem, String typeInfo) {
+    Double number = boughtItem.getNumber();
+    Double discount = Double.parseDouble(typeInfo.split(":")[1]);
+
+    return item.getPrice() * number * discount;
+  }
 }
