@@ -13,9 +13,9 @@ public class Discount {
   private static final String SECOND_HALF_PRICE_PROMOTION_FILE = "src/main/resources/second_half_price_promotion.txt";
   private static List<DiscountItem> arrayList = new ArrayList<DiscountItem>();
 
-  public List<DiscountItem> getPromotions(){
-      textToArray(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
-      textToArray(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
+  public List<DiscountItem> getPromotions() {
+    textToArray(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
+    textToArray(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
 
     Path file = Paths.get(DISCOUNT_FILE);
     List<String> linesRead = null;
@@ -26,7 +26,7 @@ public class Discount {
     }
 
     if (linesRead != null) {
-      for(String line : linesRead){
+      for (String line : linesRead) {
         String[] cartBarcode = line.split(":");
 
         DiscountItem discountItem = new DiscountItem(cartBarcode[0], "discount:" + cartBarcode[1]);
@@ -36,7 +36,7 @@ public class Discount {
     return arrayList;
   }
 
-  private void textToArray(String path, String type){
+  private void textToArray(String path, String type) {
 
     Path file = Paths.get(path);
     List<String> linesRead = null;
@@ -47,7 +47,7 @@ public class Discount {
     }
 
     if (linesRead != null) {
-      for(String line : linesRead){
+      for (String line : linesRead) {
         DiscountItem discountItem = new DiscountItem(line, type);
         arrayList.add(discountItem);
       }
