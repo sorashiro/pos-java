@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pos {
-  public ArrayList countCart() throws IOException {
-    Cart cart = new Cart();
+  public ArrayList handleBarcodes(List<String> cartBarcodes) throws IOException {
     ArrayList boughtItemList = new ArrayList();
-    List<String> cartBarcodes = cart.getBarcodes();
 
     for (String barcode : cartBarcodes) {
       int times = 0;
