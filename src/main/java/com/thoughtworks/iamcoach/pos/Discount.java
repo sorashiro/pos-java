@@ -5,20 +5,23 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Discount {
   private static final String DISCOUNT_FILE = "src/main/resources/discount_promotion.txt";
   private static final String BUY_TWO_GET_ONE_FREE_FILE = "src/main/resources/buy_two_get_one_free_promotion.txt";
   private static final String SECOND_HALF_PRICE_PROMOTION_FILE = "src/main/resources/second_half_price_promotion.txt";
-  private static ArrayList arrayList = new ArrayList();
+  private static List<DiscountItem> arrayList = new ArrayList<DiscountItem>();
 
-  public ArrayList getPromotions(){
+  public List<DiscountItem> getPromotions(){
     try {
       txtToArray(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
       txtToArray(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
     } catch (IOException e) {
       e.printStackTrace();
     }
+
+
     FileReader discountRead = null;
     try {
       discountRead = new FileReader(DISCOUNT_FILE);
@@ -26,6 +29,8 @@ public class Discount {
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
+
+    
     BufferedReader discountBr = new BufferedReader(discountRead);
     String row;
     try {
