@@ -19,13 +19,7 @@ public class Discount {
     textToArray(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
     textToArray(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
 
-    Path file = Paths.get(DISCOUNT_FILE);
-    List<String> linesRead = null;
-    try {
-      linesRead = Files.readAllLines(file);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    List<String> linesRead = FileUtil.textToList(DISCOUNT_FILE);
 
     if (linesRead != null) {
       for (String line : linesRead) {
@@ -40,7 +34,7 @@ public class Discount {
 
   private void textToArray(String path, String type) {
     List<String> linesRead = FileUtil.textToList(path);
-    
+
     if (linesRead != null) {
       for (String line : linesRead) {
         DiscountItem discountItem = new DiscountItem(line, type);
