@@ -9,7 +9,7 @@ public class Cart {
   private static final String CART_FILE = "src/main/resources/cart.txt";
 
   public List<String> getBarcodes(){
-    List<String> linesRead = FileUtil.textToList(CART_FILE);;
+    List<String> linesRead = FileUtil.textToList(CART_FILE);
     return linesRead;
   }
 
