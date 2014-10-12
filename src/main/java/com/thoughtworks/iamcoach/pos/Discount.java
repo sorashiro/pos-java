@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +18,8 @@ public class Discount {
 
   public List<DiscountItem> getPromotions(){
     try {
-      txtToArray(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
-      txtToArray(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
+      textToArray(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
+      textToArray(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -30,7 +33,7 @@ public class Discount {
       e.printStackTrace();
     }
 
-    
+
     BufferedReader discountBr = new BufferedReader(discountRead);
     String row;
     try {
@@ -46,14 +49,22 @@ public class Discount {
     return arrayList;
   }
 
-  private void txtToArray(String path, String type) throws IOException {
-    FileReader read = new FileReader(path);
-    BufferedReader br = new BufferedReader(read);
-    String row;
+  private void textToArray(String path, String type) throws IOException {
 
-    while ((row = br.readLine()) != null) {
-      DiscountItem discountItem = new DiscountItem(row, type);
-      arrayList.add(discountItem);
+    Path file = Paths.get(path);
+    List<String> linesRead = null;
+    try {
+      linesRead = Files.readAllLines(file);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    if (linesRead != null) {
+      for(String line : linesRead){
+        DiscountItem discountItem = new DiscountItem(line, type);
+        arrayList.add(discountItem);
+      }
     }
   }
+
 }
