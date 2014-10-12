@@ -2,12 +2,13 @@ package com.thoughtworks.iamcoach.pos;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pos {
   public ArrayList countCart() throws IOException {
     Cart cart = new Cart();
     ArrayList boughtItemList = new ArrayList();
-    ArrayList<String> cartBarcodes = cart.getBarcodes();
+    List<String> cartBarcodes = cart.getBarcodes();
 
     for (String barcode : cartBarcodes) {
       int times = 0;
@@ -28,14 +29,14 @@ public class Pos {
   private void findPromotion() throws IOException {
     Cart cart = new Cart();
     Discount discount = new Discount();
-    ArrayList<String> cartItems = cart.getBarcodes();
+    List<String> cartItems = cart.getBarcodes();
     ArrayList<DiscountItem> promotions = discount.getPromotions();
 
     for(String cartItem : cartItems){
       for(DiscountItem promotion : promotions){
         if(cartItem.equals(promotion.getBarcode())){
           calculatePromotion(promotion);
-          
+
         }
       }
     }
