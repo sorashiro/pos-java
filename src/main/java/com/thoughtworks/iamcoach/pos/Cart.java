@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Cart {
-  private static String CARTFILE = "src/main/resources/cart.txt";
+  private static final String CART_FILE = "src/main/resources/cart.txt";
 
   public ArrayList<String> getBarcodes() throws IOException {
     ArrayList arrayList = new ArrayList<String>();
-    FileReader read = new FileReader(CARTFILE);
+    FileReader read = new FileReader(CART_FILE);
     BufferedReader br = new BufferedReader(read);
     String row;
 
