@@ -1,8 +1,5 @@
 package com.thoughtworks.iamcoach.pos;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,39 +14,29 @@ public class Discount {
   private static List<DiscountItem> arrayList = new ArrayList<DiscountItem>();
 
   public List<DiscountItem> getPromotions(){
-    try {
       textToArray(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
       textToArray(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
+
+    Path file = Paths.get(DISCOUNT_FILE);
+    List<String> linesRead = null;
+    try {
+      linesRead = Files.readAllLines(file);
     } catch (IOException e) {
       e.printStackTrace();
     }
 
+    if (linesRead != null) {
+      for(String line : linesRead){
+        String[] cartBarcode = line.split(":");
 
-    FileReader discountRead = null;
-    try {
-      discountRead = new FileReader(DISCOUNT_FILE);
-
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    }
-
-
-    BufferedReader discountBr = new BufferedReader(discountRead);
-    String row;
-    try {
-      while ((row = discountBr.readLine()) != null) {
-        String[] cartBarcode = row.split(":");
         DiscountItem discountItem = new DiscountItem(cartBarcode[0], "discount:" + cartBarcode[1]);
         arrayList.add(discountItem);
       }
-    } catch (IOException e) {
-      e.printStackTrace();
     }
-
     return arrayList;
   }
 
-  private void textToArray(String path, String type) throws IOException {
+  private void textToArray(String path, String type){
 
     Path file = Paths.get(path);
     List<String> linesRead = null;
