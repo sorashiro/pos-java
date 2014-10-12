@@ -6,16 +6,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Discount {
-  private static String DISCOUNT = "src/main/resources/discount_promotion.txt";
-  private static String BUY_TWO_GET_ONE_FREE = "src/main/resources/buy_two_get_one_free_promotion.txt";
-  private static String SECOND_HALF_PRICE_PROMOTION = "src/main/resources/second_half_price_promotion.txt";
+  private static final String DISCOUNT_FILE = "src/main/resources/discount_promotion.txt";
+  private static final String BUY_TWO_GET_ONE_FREE_FILE = "src/main/resources/buy_two_get_one_free_promotion.txt";
+  private static final String SECOND_HALF_PRICE_PROMOTION_FILE = "src/main/resources/second_half_price_promotion.txt";
   private static ArrayList arrayList = new ArrayList();
 
   public ArrayList getPromotions() throws IOException {
-    txtToArray(BUY_TWO_GET_ONE_FREE, "buy_two_get_one_free");
-    txtToArray(SECOND_HALF_PRICE_PROMOTION, "second_half_price");
+    txtToArray(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
+    txtToArray(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
 
-    FileReader discountRead = new FileReader(DISCOUNT);
+    FileReader discountRead = new FileReader(DISCOUNT_FILE);
     BufferedReader discountBr = new BufferedReader(discountRead);
     String row;
 
