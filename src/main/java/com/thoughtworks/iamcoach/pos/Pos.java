@@ -12,9 +12,6 @@ public class Pos {
         tempArray.add(barcode);
       }
     }
-    for(String barcode : tempArray){
-      System.out.println(barcode);
-    }
     return tempArray;
   }
   public ArrayList handleBarcodes(List<String> cartBarcodes) throws IOException {
