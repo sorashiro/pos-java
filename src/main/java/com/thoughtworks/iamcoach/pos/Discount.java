@@ -1,5 +1,7 @@
 package com.thoughtworks.iamcoach.pos;
 
+import com.thoughtworks.iamcoach.pos.util.FileUtil;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -37,15 +39,8 @@ public class Discount {
   }
 
   private void textToArray(String path, String type) {
-
-    Path file = Paths.get(path);
-    List<String> linesRead = null;
-    try {
-      linesRead = Files.readAllLines(file);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-
+    List<String> linesRead = FileUtil.textToList(path);
+    
     if (linesRead != null) {
       for (String line : linesRead) {
         DiscountItem discountItem = new DiscountItem(line, type);
