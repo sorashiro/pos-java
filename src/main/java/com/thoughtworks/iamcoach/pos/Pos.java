@@ -24,6 +24,7 @@ public class Pos {
     }
     return result;
   }
+
   public ArrayList handleBarcodes(List<String> cartBarcodes) throws IOException {
     ArrayList boughtItemList = new ArrayList();
     List<String> uniqueBarcodes = uniqueArray(cartBarcodes);
@@ -31,18 +32,13 @@ public class Pos {
       int times = getBarcodeTimes(cartBarcodes, uniqueBarcode);
 
       String[] barcodes = uniqueBarcode.split("-");
-      BoughtItem boughtItem = new BoughtItem();
-      if(barcodes.length == 1){
-        boughtItem = new BoughtItem(barcodes[0], 1.00 * times);
-      }
+      Double number = 1.00;
 
       if(barcodes.length == 2){
-        boughtItem = new BoughtItem(barcodes[0], Double.parseDouble(barcodes[1]) * times);
+        number = Double.parseDouble(barcodes[1]);
       }
-
-      if(boughtItemList.indexOf(boughtItem) == -1){
-        boughtItemList.add(boughtItem);
-      }
+      BoughtItem boughtItem = new BoughtItem(barcodes[0], number * times);
+      boughtItemList.add(boughtItem);
     }
     return boughtItemList;
   }
