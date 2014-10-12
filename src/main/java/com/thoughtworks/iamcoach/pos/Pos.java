@@ -47,7 +47,7 @@ public class Pos {
     Cart cart = new Cart();
     Discount discount = new Discount();
     List<String> cartItems = cart.getBarcodes();
-    ArrayList<DiscountItem> promotions = discount.getPromotions();
+    List<DiscountItem> promotions = discount.getPromotions();
 
     for(String cartItem : cartItems){
       for(DiscountItem promotion : promotions){
