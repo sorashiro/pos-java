@@ -1,6 +1,7 @@
 package com.thoughtworks.iamcoach.pos;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,19 +12,32 @@ public class Discount {
   private static final String SECOND_HALF_PRICE_PROMOTION_FILE = "src/main/resources/second_half_price_promotion.txt";
   private static ArrayList arrayList = new ArrayList();
 
-  public ArrayList getPromotions() throws IOException {
-    txtToArray(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
-    txtToArray(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
+  public ArrayList getPromotions(){
+    try {
+      txtToArray(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
+      txtToArray(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    FileReader discountRead = null;
+    try {
+      discountRead = new FileReader(DISCOUNT_FILE);
 
-    FileReader discountRead = new FileReader(DISCOUNT_FILE);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
     BufferedReader discountBr = new BufferedReader(discountRead);
     String row;
-
-    while ((row = discountBr.readLine()) != null) {
-      String[] cartBarcode = row.split(":");
-      DiscountItem discountItem = new DiscountItem(cartBarcode[0], "discount:" + cartBarcode[1]);
-      arrayList.add(discountItem);
+    try {
+      while ((row = discountBr.readLine()) != null) {
+        String[] cartBarcode = row.split(":");
+        DiscountItem discountItem = new DiscountItem(cartBarcode[0], "discount:" + cartBarcode[1]);
+        arrayList.add(discountItem);
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+
     return arrayList;
   }
 
