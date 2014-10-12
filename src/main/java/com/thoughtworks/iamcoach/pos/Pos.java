@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pos {
-  private List uniqueArray(List<String> cartBarcodes){
+  private List<String> uniqueArray(List<String> cartBarcodes){
     List<String> tempArray = new ArrayList<String>();
     for(String barcode : cartBarcodes){
       if(!tempArray.contains(barcode)){
@@ -25,8 +25,8 @@ public class Pos {
     return result;
   }
 
-  public ArrayList handleBarcodes(List<String> cartBarcodes) throws IOException {
-    ArrayList boughtItemList = new ArrayList();
+  public List<BoughtItem> handleBarcodes(List<String> cartBarcodes) throws IOException {
+    List<BoughtItem> boughtItemList = new ArrayList<BoughtItem>();
 
     List<String> uniqueBarcodes = uniqueArray(cartBarcodes);
     for (String uniqueBarcode : uniqueBarcodes) {
