@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pos {
-  private List<String> uniqueArray(List<String> cartBarcodes){
+  private List<String> uniqueArray(List<String> cartBarcodes) {
     List<String> tempArray = new ArrayList<String>();
-    for(String barcode : cartBarcodes){
-      if(!tempArray.contains(barcode)){
+    for (String barcode : cartBarcodes) {
+      if (!tempArray.contains(barcode)) {
         tempArray.add(barcode);
       }
     }
     return tempArray;
   }
 
-  private int getBarcodeTimes(List<String> cartBarcodes, String barcode){
+  private int getBarcodeTimes(List<String> cartBarcodes, String barcode) {
     int result = 0;
     for (String cartBarcode : cartBarcodes) {
       if (cartBarcode.equals(barcode)) {
@@ -34,7 +34,7 @@ public class Pos {
       String[] barcodes = uniqueBarcode.split("-");
       Double number = 1.00;
 
-      if(barcodes.length == 2){
+      if (barcodes.length == 2) {
         number = Double.parseDouble(barcodes[1]);
       }
 
@@ -49,9 +49,9 @@ public class Pos {
     List<String> cartItems = cart.getBarcodes();
     List<DiscountItem> promotions = discount.getPromotions();
 
-    for(String cartItem : cartItems){
-      for(DiscountItem promotion : promotions){
-        if(cartItem.equals(promotion.getBarcode())){
+    for (String cartItem : cartItems) {
+      for (DiscountItem promotion : promotions) {
+        if (cartItem.equals(promotion.getBarcode())) {
           calculatePromotion(promotion);
 
         }
@@ -65,13 +65,11 @@ public class Pos {
     BoughtItem boughtItem = cart.findItemNumber(promotion.getBarcode());
     Item item = itemServer.findItem(promotion.getBarcode());
 
-    if(promotion.getType().equals("buy_two_get_one_free")) {
+    if (promotion.getType().equals("buy_two_get_one_free")) {
       calculateBuyTwo(item, boughtItem);
-    }
-    else if(promotion.getType().equals("second_half_price")) {
+    } else if (promotion.getType().equals("second_half_price")) {
       calculateHalfPrice(item, boughtItem);
-    }
-    else if(promotion.getType().contains("discount")) {
+    } else if (promotion.getType().contains("discount")) {
       calculateDiscount(item, boughtItem, promotion.getType());
     }
   }

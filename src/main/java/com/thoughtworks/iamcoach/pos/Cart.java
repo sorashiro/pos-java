@@ -8,11 +8,11 @@ import java.util.List;
 public class Cart {
   private static final String CART_FILE = "src/main/resources/cart.txt";
 
-  public List<String> getBarcodes(){
+  public List<String> getBarcodes() {
     return FileUtil.textToList(CART_FILE);
   }
 
-  public BoughtItem findItemNumber(String  barcode) throws IOException {
+  public BoughtItem findItemNumber(String barcode) throws IOException {
     Pos pos = new Pos();
     BoughtItem result = new BoughtItem();
 //    ArrayList<BoughtItem> boughtItems = pos.countCart();
@@ -21,7 +21,7 @@ public class Cart {
 //            result = boughtItem;
 //        }
 //    }
-      return  result;
+    return result;
   }
 
 }

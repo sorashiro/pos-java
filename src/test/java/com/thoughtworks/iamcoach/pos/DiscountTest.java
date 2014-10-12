@@ -9,7 +9,7 @@ public class DiscountTest {
   Discount discount = new Discount();
 
   @Test
-  public void get_all_discount_promotions(){
-      assertThat(discount.getPromotions().size()).isEqualTo(9);
+  public void get_all_discount_promotions() {
+    assertThat(discount.getPromotions().size()).isEqualTo(9);
   }
 }

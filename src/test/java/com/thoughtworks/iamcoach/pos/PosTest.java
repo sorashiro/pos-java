@@ -10,8 +10,9 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 public class PosTest {
   Pos pos = new Pos();
+
   @Test
-  public  void handle_barcodes_test(){
+  public void handle_barcodes_test() {
     List<String> cartBarcodes = new ArrayList<String>();
     cartBarcodes.add("ITEM000001");
     cartBarcodes.add("ITEM000001");
