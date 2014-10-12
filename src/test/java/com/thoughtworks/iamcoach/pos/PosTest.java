@@ -17,12 +17,21 @@ public class PosTest {
     cartBarcodes.add("ITEM000001");
     cartBarcodes.add("ITEM000001");
     cartBarcodes.add("ITEM000001");
+    cartBarcodes.add("ITEM000006-2.00");
+    cartBarcodes.add("ITEM000006-2.00");
 
     try {
       List<BoughtItem> boughtItemList = pos.handleBarcodes(cartBarcodes);
-      BoughtItem boughtItem = boughtItemList.get(0);
-      assertThat(boughtItem.getNumber()).isEqualTo(4.00);
-      assertThat(boughtItem.getBarcode()).isEqualTo("ITEM000001");
+      BoughtItem boughtItem1 = boughtItemList.get(0);
+      BoughtItem boughtItem2 = boughtItemList.get(1);
+      System.out.println(boughtItem1.getBarcode());
+      System.out.println(boughtItem2.getBarcode());
+
+      assertThat(boughtItem1.getNumber()).isEqualTo(4.00);
+      assertThat(boughtItem1.getBarcode()).isEqualTo("ITEM000001");
+
+      assertThat(boughtItem2.getNumber()).isEqualTo(4.00);
+      assertThat(boughtItem2.getBarcode()).isEqualTo("ITEM000006");
     } catch (IOException e) {
       e.printStackTrace();
     }
