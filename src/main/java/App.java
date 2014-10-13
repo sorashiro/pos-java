@@ -10,9 +10,9 @@ public class App {
     Cart cart = new Cart();
     Pos pos = new Pos();
     List<String> cartBarcodes = cart.getBarcodes();
+    List<Item> boughtItems = new ArrayList<Item>();
     try {
       List<BoughtItem> cartItems = pos.handleBarcodes(cartBarcodes);
-      List<Item> boughtItems = new ArrayList<Item>();
       for (BoughtItem cartItem : cartItems) {
         Item item = itemServer.findItem(cartItem.getBarcode());
         boughtItems.add(item);
@@ -21,5 +21,11 @@ public class App {
     } catch (IOException e) {
       e.printStackTrace();
     }
+
+    calculatePromotion(boughtItems);
+  }
+
+  private static void calculatePromotion(List<Item> boughtItems) {
+
   }
 }
