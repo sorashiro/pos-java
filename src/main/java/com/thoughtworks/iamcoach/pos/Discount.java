@@ -40,6 +40,13 @@ public class Discount {
   }
 
   public String getPromotionType(String barcode) {
-    return "buy_two_get_one_free";
+    List<Promotion> promotions = getPromotions();
+    String result = "";
+    for (Promotion promotion : promotions) {
+      if (barcode.equals(promotion.getBarcode())) {
+        result = promotion.getType();
+      }
+    }
+    return result;
   }
 }
