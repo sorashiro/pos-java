@@ -20,6 +20,11 @@ public class App {
     }
 
     List<Promotion> promotions = discount.getPromotions();
+      try {
+          pos.calculatePromotion(boughtItems, promotions);
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
   }
 
 }
