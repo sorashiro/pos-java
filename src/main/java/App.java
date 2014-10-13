@@ -8,8 +8,10 @@ public class App {
   public static void main(String[] args) {
     Cart cart = new Cart();
     Pos pos = new Pos();
+    Discount discount = new Discount();
     List<String> cartBarcodes = cart.getBarcodes();
     List<BoughtItem> boughtItems = new ArrayList<BoughtItem>();
+
     try {
       boughtItems = pos.handleBarcodes(cartBarcodes);
 
@@ -17,6 +19,7 @@ public class App {
       e.printStackTrace();
     }
 
+    List<Promotion> promotions = discount.getPromotions();
   }
 
 }
