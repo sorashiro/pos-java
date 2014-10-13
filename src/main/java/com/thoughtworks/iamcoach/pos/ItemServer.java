@@ -4,12 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ItemServer {
   private static final String ITEM_FILE = "src/main/resources/item.txt";
 
-  private ArrayList getItems() throws IOException {
-    ArrayList arrayList = new ArrayList();
+  private List<Item> getItems() throws IOException {
+    List<Item> arrayList = new ArrayList<Item>();
     FileReader read = new FileReader(ITEM_FILE);
     BufferedReader br = new BufferedReader(read);
     String row;
@@ -23,7 +24,7 @@ public class ItemServer {
   }
 
   public Item findItem(String barcode) throws IOException {
-    ArrayList<Item> items = getItems();
+    List<Item> items = getItems();
     Item result = new Item();
     for (Item item : items) {
       if (barcode.equals(item.getBarcode())) {
