@@ -13,7 +13,7 @@ public class App {
 
     Discount discount = new Discount();
     List<Promotion> promotions = discount.getPromotions();
-    
+
     pos.calculatePromotion(boughtItems);
 
   }

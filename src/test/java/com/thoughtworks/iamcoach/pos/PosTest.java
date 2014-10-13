@@ -2,7 +2,6 @@ package com.thoughtworks.iamcoach.pos;
 
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class PosTest {
     cartBarcodes.add("ITEM000006-2.00");
     cartBarcodes.add("ITEM000006-2.00");
 
-    try {
+
       List<BoughtItem> boughtItemList = pos.handleBarcodes(cartBarcodes);
       BoughtItem boughtItem1 = boughtItemList.get(0);
       BoughtItem boughtItem2 = boughtItemList.get(1);
@@ -31,9 +30,7 @@ public class PosTest {
 
       assertThat(boughtItem2.getNumber()).isEqualTo(4.00);
       assertThat(boughtItem2.getBarcode()).isEqualTo("ITEM000006");
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+
   }
 
   @Test
@@ -46,10 +43,7 @@ public class PosTest {
     boughtItems.add(new BoughtItem(item1, 4.00));
     boughtItems.add(new BoughtItem(item2, 3.00));
     boughtItems.add(new BoughtItem(item3, 2.00));
-    try {
+
       assertThat(pos.calculatePromotion(boughtItems)).isEqualTo(65.00);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
   }
 }
