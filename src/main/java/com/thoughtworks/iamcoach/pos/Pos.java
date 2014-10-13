@@ -43,7 +43,7 @@ public class Pos {
     return boughtItemList;
   }
 
-  private void findPromotion() throws IOException {
+  public void findPromotion() throws IOException {
     Cart cart = new Cart();
     Discount discount = new Discount();
     List<String> cartItems = cart.getBarcodes();
