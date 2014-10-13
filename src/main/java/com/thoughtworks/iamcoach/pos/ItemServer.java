@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ItemServer {
-  private static String ITEMFILE = "src/main/resources/item.txt";
+  private static final String ITEM_FILE = "src/main/resources/item.txt";
 
   private ArrayList getItems() throws IOException {
     ArrayList arrayList = new ArrayList();
-    FileReader read = new FileReader(ITEMFILE);
+    FileReader read = new FileReader(ITEM_FILE);
     BufferedReader br = new BufferedReader(read);
     String row;
 
