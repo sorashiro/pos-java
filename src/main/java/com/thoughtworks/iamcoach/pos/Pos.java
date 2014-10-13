@@ -27,7 +27,7 @@ public class Pos {
 
   public List<BoughtItem> handleBarcodes(List<String> cartBarcodes) throws IOException {
     List<BoughtItem> boughtItemList = new ArrayList<BoughtItem>();
-
+    ItemServer itemServer = new ItemServer();
     List<String> uniqueBarcodes = uniqueArray(cartBarcodes);
     for (String uniqueBarcode : uniqueBarcodes) {
       int times = getBarcodeTimes(cartBarcodes, uniqueBarcode);
@@ -38,7 +38,7 @@ public class Pos {
         number = Double.parseDouble(barcodes[1]);
       }
 
-      boughtItemList.add(new BoughtItem(barcodes[0], number * times));
+      boughtItemList.add(new BoughtItem(itemServer.findItem(barcodes[0]), number * times));
     }
     return boughtItemList;
   }
