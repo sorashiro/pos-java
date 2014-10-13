@@ -20,6 +20,10 @@ public class BoughtItem {
     return item;
   }
 
+  public Double getPrice() {
+    return item.getPrice();
+  }
+
   public Double getNumber() {
     return number;
   }
