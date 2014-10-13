@@ -47,15 +47,15 @@ public class Pos {
     Discount discount = new Discount();
     Double result = 0.00;
     for (BoughtItem boughtItem : boughtItems) {
-        String barcode = boughtItem.getBarcode();
-        String promotionType = discount.getPromotionType(barcode);
-    if (promotionType.equals("buy_two_get_one_free")) {
-      result += calculateBuyTwo(boughtItem);
-    } else if (promotionType.equals("second_half_price")) {
-      result += calculateHalfPrice(boughtItem);
-    } else if (promotionType.contains("discount")) {
-      result += calculateDiscount(boughtItem, promotionType);
-    }
+      String barcode = boughtItem.getBarcode();
+      String promotionType = discount.getPromotionType(barcode);
+      if (promotionType.equals("buy_two_get_one_free")) {
+        result += calculateBuyTwo(boughtItem);
+      } else if (promotionType.equals("second_half_price")) {
+        result += calculateHalfPrice(boughtItem);
+      } else if (promotionType.contains("discount")) {
+        result += calculateDiscount(boughtItem, promotionType);
+      }
     }
     return result;
   }

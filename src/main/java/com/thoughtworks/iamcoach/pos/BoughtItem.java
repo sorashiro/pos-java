@@ -10,7 +10,7 @@ public class BoughtItem {
   }
 
   public String getBarcode() {
-      return item.getBarcode();
+    return item.getBarcode();
   }
 
   public Item getItem() {

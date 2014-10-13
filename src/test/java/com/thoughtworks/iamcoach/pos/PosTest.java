@@ -43,13 +43,13 @@ public class PosTest {
     Item item2 = new Item("ITEM000001", "book", "本", 10.00);
     Item item3 = new Item("ITEM000007", "milk", "盒", 10.00);
 
-      boughtItems.add(new BoughtItem(item1, 4.00));
-      boughtItems.add(new BoughtItem(item2, 3.00));
-      boughtItems.add(new BoughtItem(item3, 2.00));
-      try {
-          assertThat(pos.calculatePromotion(boughtItems)).isEqualTo(65.00);
-      } catch (IOException e) {
-          e.printStackTrace();
-      }
+    boughtItems.add(new BoughtItem(item1, 4.00));
+    boughtItems.add(new BoughtItem(item2, 3.00));
+    boughtItems.add(new BoughtItem(item3, 2.00));
+    try {
+      assertThat(pos.calculatePromotion(boughtItems)).isEqualTo(65.00);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }
