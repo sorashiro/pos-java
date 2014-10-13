@@ -2,8 +2,6 @@ package com.thoughtworks.iamcoach.pos;
 
 import org.junit.Test;
 
-import java.io.IOException;
-
 import static org.fest.assertions.api.Assertions.assertThat;
 
 public class ItemServerTest {
