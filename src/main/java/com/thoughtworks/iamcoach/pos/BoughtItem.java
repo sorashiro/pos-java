@@ -1,34 +1,24 @@
 package com.thoughtworks.iamcoach.pos;
 
 public class BoughtItem {
-  private String barcode;
+  private Item item;
   private Double number;
 
-  public BoughtItem(String barcode, Double number) {
-    this.barcode = barcode;
+  public BoughtItem(Item item, Double number) {
+    this.item = item;
     this.number = number;
   }
 
   public BoughtItem() {
   }
 
-  public String getBarcode() {
-    return barcode;
-  }
-
-  public void setBarcode(String barcode) {
-    this.barcode = barcode;
+  public Item getBarcode() {
+    return item;
   }
 
   public Double getNumber() {
     return number;
   }
 
-  public void setNumber(Double number) {
-    this.number = number;
-  }
 
-  public void addItemNumberByOne() {
-    this.number += 1;
-  }
 }
