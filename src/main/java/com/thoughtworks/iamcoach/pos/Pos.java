@@ -59,19 +59,19 @@ public class Pos {
     }
   }
 
-  private void calculatePromotion(Promotion promotion) throws IOException {
-    ItemServer itemServer = new ItemServer();
-    Cart cart = new Cart();
-    BoughtItem boughtItem = cart.findItemNumber(promotion.getBarcode());
-    Item item = itemServer.findItem(promotion.getBarcode());
-
-    if (promotion.getType().equals("buy_two_get_one_free")) {
+  public void calculatePromotion(List<BoughtItem> boughtItems, List<Promotion> promotions) throws IOException {
+    for (BoughtItem boughtItem : boughtItems) {
+        String barcode = boughtItem.getBarcode();
+        String promotionType = getPromotionType(barcode);
+    if (promotionType.equals("buy_two_get_one_free")) {
       calculateBuyTwo(item, boughtItem);
-    } else if (promotion.getType().equals("second_half_price")) {
+    } else if (promotionType.equals("second_half_price")) {
       calculateHalfPrice(item, boughtItem);
-    } else if (promotion.getType().contains("discount")) {
-      calculateDiscount(item, boughtItem, promotion.getType());
+    } else if (promotionType.contains("discount")) {
+      calculateDiscount(item, boughtItem, promotionType);
     }
+    }
+
   }
 
   private Double calculateBuyTwo(Item item, BoughtItem boughtItem) {
