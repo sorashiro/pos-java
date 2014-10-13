@@ -12,10 +12,13 @@ public class Discount {
 
   public List<Promotion> getPromotions() {
     List<Promotion> arrayList = new ArrayList<Promotion>();
+    
     List<Promotion> arrayList1 = getPromotionFromFile(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
+    arrayList.addAll(arrayList1);
+
     List<Promotion> arrayList2 = getPromotionFromFile(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
     arrayList.addAll(arrayList2);
-    arrayList.addAll(arrayList1);
+
     arrayList.addAll(getDisconutPromotion(DISCOUNT_FILE));
 
     return arrayList;
