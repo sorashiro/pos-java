@@ -12,7 +12,11 @@ public class BoughtItem {
   public BoughtItem() {
   }
 
-  public Item getBarcode() {
+  public String getBarcode() {
+      return item.getBarcode();
+  }
+
+  public Item getItem() {
     return item;
   }
 
