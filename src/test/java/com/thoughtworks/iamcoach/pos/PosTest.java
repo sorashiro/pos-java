@@ -47,7 +47,7 @@ public class PosTest {
       boughtItems.add(new BoughtItem(item2, 3.00));
       boughtItems.add(new BoughtItem(item3, 2.00));
       try {
-          assertThat(pos.calculatePromotion(boughtItems)).isEqualTo(30.00);
+          assertThat(pos.calculatePromotion(boughtItems)).isEqualTo(65.00);
       } catch (IOException e) {
           e.printStackTrace();
       }
