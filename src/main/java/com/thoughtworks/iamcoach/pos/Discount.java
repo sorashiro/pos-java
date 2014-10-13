@@ -17,8 +17,19 @@ public class Discount {
     arrayList.addAll(arrayList2);
     arrayList.addAll(arrayList1);
     arrayList.addAll(getDisconutPromotion(DISCOUNT_FILE));
-    
+
     return arrayList;
+  }
+
+  public String getPromotionType(String barcode) {
+    List<Promotion> promotions = getPromotions();
+    String result = "";
+    for (Promotion promotion : promotions) {
+      if (barcode.equals(promotion.getBarcode())) {
+        result = promotion.getType();
+      }
+    }
+    return result;
   }
 
   private List<Promotion> getDisconutPromotion(String path) {
@@ -45,16 +56,5 @@ public class Discount {
       }
     }
     return arrayList;
-  }
-
-  public String getPromotionType(String barcode) {
-    List<Promotion> promotions = getPromotions();
-    String result = "";
-    for (Promotion promotion : promotions) {
-      if (barcode.equals(promotion.getBarcode())) {
-        result = promotion.getType();
-      }
-    }
-    return result;
   }
 }
