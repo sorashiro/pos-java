@@ -2,7 +2,6 @@ package com.thoughtworks.iamcoach.pos;
 
 import com.thoughtworks.iamcoach.pos.util.FileUtil;
 
-import java.io.*;
 import java.util.List;
 
 public class Cart {
