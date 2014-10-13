@@ -12,8 +12,8 @@ public class Discount {
 
   public List<Promotion> getPromotions() {
     List<Promotion> arrayList = new ArrayList<Promotion>();
-    List<Promotion> arrayList1 = textToArray(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
-    List<Promotion> arrayList2 = textToArray(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
+    List<Promotion> arrayList1 = getPromotionFromFile(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
+    List<Promotion> arrayList2 = getPromotionFromFile(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
     arrayList.addAll(arrayList2);
     arrayList.addAll(arrayList1);
     List<String> linesRead = FileUtil.textToList(DISCOUNT_FILE);
@@ -29,7 +29,7 @@ public class Discount {
     return arrayList;
   }
 
-  private List<Promotion> textToArray(String path, String type) {
+  private List<Promotion> getPromotionFromFile(String path, String type) {
     List<String> linesRead = FileUtil.textToList(path);
     List<Promotion> arrayList = new ArrayList<Promotion>();
     if (linesRead != null) {
