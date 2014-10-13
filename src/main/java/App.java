@@ -1,6 +1,5 @@
 import com.thoughtworks.iamcoach.pos.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,19 +11,14 @@ public class App {
     List<String> cartBarcodes = cart.getBarcodes();
     List<BoughtItem> boughtItems = new ArrayList<BoughtItem>();
 
-    try {
+
       boughtItems = pos.handleBarcodes(cartBarcodes);
 
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+
 
     List<Promotion> promotions = discount.getPromotions();
-    try {
       pos.calculatePromotion(boughtItems);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+
   }
 
 }
