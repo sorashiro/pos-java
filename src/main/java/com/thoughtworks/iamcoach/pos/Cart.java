@@ -12,16 +12,5 @@ public class Cart {
     return FileUtil.textToList(CART_FILE);
   }
 
-  public BoughtItem findItemNumber(String barcode) throws IOException {
-    Pos pos = new Pos();
-    BoughtItem result = new BoughtItem();
-//    ArrayList<BoughtItem> boughtItems = pos.countCart();
-//    for(BoughtItem boughtItem : boughtItems ){
-//        if (barcode.equals(boughtItem.getBarcode())){
-//            result = boughtItem;
-//        }
-//    }
-    return result;
-  }
 
 }
