@@ -65,24 +65,24 @@ public class Pos {
         String barcode = boughtItem.getBarcode();
         String promotionType = discount.getPromotionType(barcode);
     if (promotionType.equals("buy_two_get_one_free")) {
-      calculateBuyTwo(item, boughtItem);
+      calculateBuyTwo(boughtItem);
     } else if (promotionType.equals("second_half_price")) {
-      calculateHalfPrice(item, boughtItem);
+      calculateHalfPrice(boughtItem);
     } else if (promotionType.contains("discount")) {
-      calculateDiscount(item, boughtItem, promotionType);
+      calculateDiscount(boughtItem, promotionType);
     }
     }
 
   }
 
-  private Double calculateBuyTwo(Item item, BoughtItem boughtItem) {
+  private Double calculateBuyTwo(BoughtItem boughtItem) {
     Double number = boughtItem.getNumber();
     Double payNumber = (number / 2) + (number % 2);
 
     return item.getPrice() * payNumber;
   }
 
-  private Double calculateHalfPrice(Item item, BoughtItem boughtItem) {
+  private Double calculateHalfPrice(BoughtItem boughtItem) {
     Double number = boughtItem.getNumber();
     Double total = item.getPrice() * number;
     Double discountTotal = (0.5 * item.getPrice()) * (number / 2);
@@ -90,7 +90,7 @@ public class Pos {
     return total - discountTotal;
   }
 
-  private Double calculateDiscount(Item item, BoughtItem boughtItem, String typeInfo) {
+  private Double calculateDiscount(BoughtItem boughtItem, String typeInfo) {
     Double number = boughtItem.getNumber();
     Double discount = Double.parseDouble(typeInfo.split(":")[1]);
 
