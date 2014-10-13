@@ -21,7 +21,7 @@ public class App {
 
     List<Promotion> promotions = discount.getPromotions();
       try {
-          pos.calculatePromotion(boughtItems, promotions);
+          pos.calculatePromotion(boughtItems);
       } catch (IOException e) {
           e.printStackTrace();
       }
