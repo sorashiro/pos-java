@@ -12,7 +12,7 @@ public class Discount {
 
   public List<Promotion> getPromotions() {
     List<Promotion> arrayList = new ArrayList<Promotion>();
-    
+
     List<Promotion> arrayList1 = getPromotionFromFile(BUY_TWO_GET_ONE_FREE_FILE, "buy_two_get_one_free");
     arrayList.addAll(arrayList1);
 

@@ -10,6 +10,4 @@ public class Cart {
   public List<String> getBarcodes() {
     return FileUtil.textToList(CART_FILE);
   }
-
-
 }
