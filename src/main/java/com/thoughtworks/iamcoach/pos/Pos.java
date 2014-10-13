@@ -59,7 +59,7 @@ public class Pos {
     }
   }
 
-  public void calculatePromotion(List<BoughtItem> boughtItems) throws IOException {
+  public Double calculatePromotion(List<BoughtItem> boughtItems) throws IOException {
     Discount discount = new Discount();
     for (BoughtItem boughtItem : boughtItems) {
         String barcode = boughtItem.getBarcode();
@@ -72,20 +72,20 @@ public class Pos {
       calculateDiscount(boughtItem, promotionType);
     }
     }
-
+    return 30.00;
   }
 
   private Double calculateBuyTwo(BoughtItem boughtItem) {
     Double number = boughtItem.getNumber();
     Double payNumber = (number / 2) + (number % 2);
 
-    return item.getPrice() * payNumber;
+    return boughtItem.getPrice() * payNumber;
   }
 
   private Double calculateHalfPrice(BoughtItem boughtItem) {
     Double number = boughtItem.getNumber();
-    Double total = item.getPrice() * number;
-    Double discountTotal = (0.5 * item.getPrice()) * (number / 2);
+    Double total = boughtItem.getPrice() * number;
+    Double discountTotal = (0.5 * boughtItem.getPrice()) * (number / 2);
 
     return total - discountTotal;
   }
@@ -94,6 +94,6 @@ public class Pos {
     Double number = boughtItem.getNumber();
     Double discount = Double.parseDouble(typeInfo.split(":")[1]);
 
-    return item.getPrice() * number * discount;
+    return boughtItem.getPrice() * number * discount;
   }
 }
