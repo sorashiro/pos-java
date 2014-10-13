@@ -21,15 +21,15 @@ public class PosTest {
     cartBarcodes.add("ITEM000006-2.00");
 
 
-      List<BoughtItem> boughtItemList = pos.handleBarcodes(cartBarcodes);
-      BoughtItem boughtItem1 = boughtItemList.get(0);
-      BoughtItem boughtItem2 = boughtItemList.get(1);
+    List<BoughtItem> boughtItemList = pos.handleBarcodes(cartBarcodes);
+    BoughtItem boughtItem1 = boughtItemList.get(0);
+    BoughtItem boughtItem2 = boughtItemList.get(1);
 
-      assertThat(boughtItem1.getNumber()).isEqualTo(4.00);
-      assertThat(boughtItem1.getBarcode()).isEqualTo("ITEM000001");
+    assertThat(boughtItem1.getNumber()).isEqualTo(4.00);
+    assertThat(boughtItem1.getBarcode()).isEqualTo("ITEM000001");
 
-      assertThat(boughtItem2.getNumber()).isEqualTo(4.00);
-      assertThat(boughtItem2.getBarcode()).isEqualTo("ITEM000006");
+    assertThat(boughtItem2.getNumber()).isEqualTo(4.00);
+    assertThat(boughtItem2.getBarcode()).isEqualTo("ITEM000006");
 
   }
 
@@ -44,6 +44,6 @@ public class PosTest {
     boughtItems.add(new BoughtItem(item2, 3.00));
     boughtItems.add(new BoughtItem(item3, 2.00));
 
-      assertThat(pos.calculatePromotion(boughtItems)).isEqualTo(65.00);
+    assertThat(pos.calculatePromotion(boughtItems)).isEqualTo(65.00);
   }
 }
