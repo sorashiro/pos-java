@@ -5,25 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pos {
-  private List<String> uniqueArray(List<String> cartBarcodes) {
-    List<String> tempArray = new ArrayList<String>();
-    for (String barcode : cartBarcodes) {
-      if (!tempArray.contains(barcode)) {
-        tempArray.add(barcode);
-      }
-    }
-    return tempArray;
-  }
-
-  private int getBarcodeTimes(List<String> cartBarcodes, String barcode) {
-    int result = 0;
-    for (String cartBarcode : cartBarcodes) {
-      if (cartBarcode.equals(barcode)) {
-        result++;
-      }
-    }
-    return result;
-  }
 
   public List<BoughtItem> handleBarcodes(List<String> cartBarcodes) throws IOException {
     List<BoughtItem> boughtItemList = new ArrayList<BoughtItem>();
@@ -55,6 +36,26 @@ public class Pos {
         result += calculateHalfPrice(boughtItem);
       } else if (promotionType.contains("discount")) {
         result += calculateDiscount(boughtItem, promotionType);
+      }
+    }
+    return result;
+  }
+
+  private List<String> uniqueArray(List<String> cartBarcodes) {
+    List<String> tempArray = new ArrayList<String>();
+    for (String barcode : cartBarcodes) {
+      if (!tempArray.contains(barcode)) {
+        tempArray.add(barcode);
+      }
+    }
+    return tempArray;
+  }
+
+  private int getBarcodeTimes(List<String> cartBarcodes, String barcode) {
+    int result = 0;
+    for (String cartBarcode : cartBarcodes) {
+      if (cartBarcode.equals(barcode)) {
+        result++;
       }
     }
     return result;
