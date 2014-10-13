@@ -6,18 +6,13 @@ import java.util.List;
 
 public class App {
   public static void main(String[] args) {
-    ItemServer itemServer = new ItemServer();
     Cart cart = new Cart();
     Pos pos = new Pos();
     List<String> cartBarcodes = cart.getBarcodes();
-    List<Item> boughtItems = new ArrayList<Item>();
+    List<BoughtItem> boughtItems = new ArrayList<BoughtItem>();
     try {
-      List<BoughtItem> cartItems = pos.handleBarcodes(cartBarcodes);
-      for (BoughtItem cartItem : cartItems) {
-        Item item = itemServer.findItem(cartItem.getBarcode());
-        boughtItems.add(item);
-      }
-      
+      boughtItems = pos.handleBarcodes(cartBarcodes);
+
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -25,7 +20,7 @@ public class App {
     calculatePromotion(boughtItems);
   }
 
-  private static void calculatePromotion(List<Item> boughtItems) {
+  private static void calculatePromotion(List<BoughtItem> boughtItems) {
 
   }
 }
