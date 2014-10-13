@@ -78,7 +78,7 @@ public class Pos {
 
   private Double calculateBuyTwo(BoughtItem boughtItem) {
     Double number = boughtItem.getNumber();
-    Double payNumber = (number / 2) + (number % 2);
+    Double payNumber = (number / 3 * 2) + (number % 3);
 
     return boughtItem.getPrice() * payNumber;
   }
