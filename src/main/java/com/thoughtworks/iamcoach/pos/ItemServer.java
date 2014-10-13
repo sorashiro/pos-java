@@ -1,5 +1,7 @@
 package com.thoughtworks.iamcoach.pos;
 
+import com.thoughtworks.iamcoach.pos.util.FileUtil;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,16 +11,15 @@ import java.util.List;
 public class ItemServer {
   private static final String ITEM_FILE = "src/main/resources/item.txt";
 
-  private List<Item> getItems() throws IOException {
+  private List<Item> getItems(){
     List<Item> arrayList = new ArrayList<Item>();
-    FileReader read = new FileReader(ITEM_FILE);
-    BufferedReader br = new BufferedReader(read);
-    String row;
-
-    while ((row = br.readLine()) != null) {
-      String[] stringItem = row.split(" ");
+    
+    List<String> linesRead = FileUtil.textToList(ITEM_FILE);
+    for(String line : linesRead) {
+      String[] stringItem = line.split(" ");
       Item item = new Item(stringItem[0], stringItem[1], stringItem[2], Double.parseDouble(stringItem[3]));
       arrayList.add(item);
+
     }
     return arrayList;
   }
