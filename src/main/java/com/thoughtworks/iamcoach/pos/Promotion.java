@@ -1,10 +1,10 @@
 package com.thoughtworks.iamcoach.pos;
 
-public class DiscountItem {
+public class Promotion {
   private String barcode;
   private String type;
 
-  public DiscountItem(String barcode, String type) {
+  public Promotion(String barcode, String type) {
     this.barcode = barcode;
     this.type = type;
   }

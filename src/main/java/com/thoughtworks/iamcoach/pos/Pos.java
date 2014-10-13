@@ -47,10 +47,10 @@ public class Pos {
     Cart cart = new Cart();
     Discount discount = new Discount();
     List<String> cartItems = cart.getBarcodes();
-    List<DiscountItem> promotions = discount.getPromotions();
+    List<Promotion> promotions = discount.getPromotions();
 
     for (String cartItem : cartItems) {
-      for (DiscountItem promotion : promotions) {
+      for (Promotion promotion : promotions) {
         if (cartItem.equals(promotion.getBarcode())) {
           calculatePromotion(promotion);
 
@@ -59,7 +59,7 @@ public class Pos {
     }
   }
 
-  private void calculatePromotion(DiscountItem promotion) throws IOException {
+  private void calculatePromotion(Promotion promotion) throws IOException {
     ItemServer itemServer = new ItemServer();
     Cart cart = new Cart();
     BoughtItem boughtItem = cart.findItemNumber(promotion.getBarcode());
