@@ -29,6 +29,20 @@ public class Discount {
     return arrayList;
   }
 
+  private List<Promotion> getDisconutPromotion(String path) {
+    List<String> linesRead = FileUtil.textToList(path);
+    List<Promotion> arrayList = new ArrayList<Promotion>();
+    if (linesRead != null) {
+      for (String line : linesRead) {
+        String[] cartBarcode = line.split(":");
+
+        Promotion promotion = new Promotion(cartBarcode[0], "discount:" + cartBarcode[1]);
+        arrayList.add(promotion);
+      }
+    }
+    return arrayList;
+  }
+  
   private List<Promotion> getPromotionFromFile(String path, String type) {
     List<String> linesRead = FileUtil.textToList(path);
     List<Promotion> arrayList = new ArrayList<Promotion>();
