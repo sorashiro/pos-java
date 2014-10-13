@@ -17,10 +17,6 @@ public class App {
       e.printStackTrace();
     }
 
-    calculatePromotion(boughtItems);
   }
 
-  private static void calculatePromotion(List<BoughtItem> boughtItems) {
-
-  }
 }
