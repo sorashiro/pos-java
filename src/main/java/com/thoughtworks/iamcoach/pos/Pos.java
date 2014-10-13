@@ -1,12 +1,11 @@
 package com.thoughtworks.iamcoach.pos;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pos {
 
-  public List<BoughtItem> handleBarcodes(List<String> cartBarcodes) throws IOException {
+  public List<BoughtItem> handleBarcodes(List<String> cartBarcodes){
     List<BoughtItem> boughtItemList = new ArrayList<BoughtItem>();
     ItemServer itemServer = new ItemServer();
     List<String> uniqueBarcodes = uniqueArray(cartBarcodes);
@@ -24,7 +23,7 @@ public class Pos {
     return boughtItemList;
   }
 
-  public Double calculatePromotion(List<BoughtItem> boughtItems) throws IOException {
+  public Double calculatePromotion(List<BoughtItem> boughtItems){
     Discount discount = new Discount();
     Double result = 0.00;
     for (BoughtItem boughtItem : boughtItems) {
