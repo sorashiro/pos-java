@@ -43,22 +43,6 @@ public class Pos {
     return boughtItemList;
   }
 
-  public void findPromotion() throws IOException {
-    Cart cart = new Cart();
-    Discount discount = new Discount();
-    List<String> cartItems = cart.getBarcodes();
-    List<Promotion> promotions = discount.getPromotions();
-
-    for (String cartItem : cartItems) {
-      for (Promotion promotion : promotions) {
-        if (cartItem.equals(promotion.getBarcode())) {
-//          calculatePromotion(promotion);
-
-        }
-      }
-    }
-  }
-
   public Double calculatePromotion(List<BoughtItem> boughtItems) throws IOException {
     Discount discount = new Discount();
     Double result = 0.00;
