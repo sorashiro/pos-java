@@ -13,15 +13,8 @@ public class Promotion {
     return barcode;
   }
 
-  public void setBarcode(String barcode) {
-    this.barcode = barcode;
-  }
-
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
-    this.type = type;
-  }
 }
