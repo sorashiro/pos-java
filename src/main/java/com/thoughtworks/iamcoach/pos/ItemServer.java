@@ -2,7 +2,6 @@ package com.thoughtworks.iamcoach.pos;
 
 import com.thoughtworks.iamcoach.pos.util.FileUtil;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class ItemServer {
     return arrayList;
   }
 
-  public Item findItem(String barcode) throws IOException {
+  public Item findItem(String barcode){
     List<Item> items = getItems();
     Item result = new Item();
     for (Item item : items) {
