@@ -16,16 +16,8 @@ public class Discount {
     List<Promotion> arrayList2 = getPromotionFromFile(SECOND_HALF_PRICE_PROMOTION_FILE, "second_half_price");
     arrayList.addAll(arrayList2);
     arrayList.addAll(arrayList1);
-    List<String> linesRead = FileUtil.textToList(DISCOUNT_FILE);
-
-    if (linesRead != null) {
-      for (String line : linesRead) {
-        String[] cartBarcode = line.split(":");
-
-        Promotion promotion = new Promotion(cartBarcode[0], "discount:" + cartBarcode[1]);
-        arrayList.add(promotion);
-      }
-    }
+    arrayList.addAll(getDisconutPromotion(DISCOUNT_FILE));
+    
     return arrayList;
   }
 
@@ -42,7 +34,7 @@ public class Discount {
     }
     return arrayList;
   }
-  
+
   private List<Promotion> getPromotionFromFile(String path, String type) {
     List<String> linesRead = FileUtil.textToList(path);
     List<Promotion> arrayList = new ArrayList<Promotion>();
