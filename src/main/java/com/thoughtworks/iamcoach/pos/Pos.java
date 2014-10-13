@@ -52,17 +52,18 @@ public class Pos {
     for (String cartItem : cartItems) {
       for (Promotion promotion : promotions) {
         if (cartItem.equals(promotion.getBarcode())) {
-          calculatePromotion(promotion);
+//          calculatePromotion(promotion);
 
         }
       }
     }
   }
 
-  public void calculatePromotion(List<BoughtItem> boughtItems, List<Promotion> promotions) throws IOException {
+  public void calculatePromotion(List<BoughtItem> boughtItems) throws IOException {
+    Discount discount = new Discount();
     for (BoughtItem boughtItem : boughtItems) {
         String barcode = boughtItem.getBarcode();
-        String promotionType = getPromotionType(barcode);
+        String promotionType = discount.getPromotionType(barcode);
     if (promotionType.equals("buy_two_get_one_free")) {
       calculateBuyTwo(item, boughtItem);
     } else if (promotionType.equals("second_half_price")) {
