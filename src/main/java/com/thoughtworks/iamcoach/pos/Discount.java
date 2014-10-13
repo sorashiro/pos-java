@@ -39,4 +39,7 @@ public class Discount {
     }
   }
 
+  public String getPromotionType(String barcode) {
+    return "buy_two_get_one_free";
+  }
 }
