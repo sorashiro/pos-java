@@ -11,11 +11,8 @@ public class App {
     Pos pos = new Pos();
     List<BoughtItem> boughtItems = pos.handleBarcodes(cartBarcodes);
 
-    Discount discount = new Discount();
-    List<Promotion> promotions = discount.getPromotions();
-
-    pos.calculatePromotion(boughtItems);
-
+    Double total = pos.calculatePromotion(boughtItems);
+    System.out.println(total);
   }
 
 }
