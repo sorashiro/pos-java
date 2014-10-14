@@ -12,8 +12,8 @@ public class App {
     List<BoughtItem> boughtItems = pos.handleBarcodes(cartBarcodes);
 
     PromotionServer promotionServer = new PromotionServer();
-    Double total = promotionServer.calculatePromotion(boughtItems);
-    System.out.println(total);
+    List<PrintItem> printItemList = promotionServer.calculatePromotion(boughtItems);
+    System.out.println(printItemList);
   }
 
 }
