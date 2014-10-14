@@ -53,7 +53,7 @@ public class PromotionServer {
   private Double calculateDiscount(BoughtItem boughtItem, String typeInfo) {
     Double number = boughtItem.getNumber();
     Double discount = Double.parseDouble(typeInfo.split(":")[1]);
-    
+
     return boughtItem.getPrice() * number * discount / 100;
   }
 }

@@ -24,6 +24,18 @@ public class Pos {
     return boughtItemList;
   }
 
+  private BoughtItem toBoughtItem(String cartBarcode, int times){
+    ItemServer itemServer = new ItemServer();
+    String[] barcodes = cartBarcode.split("-");
+
+    Double number = 1.00;
+    if (barcodes.length == 2) {
+      number = Double.parseDouble(barcodes[1]);
+    }
+
+    return new BoughtItem(itemServer.findItem(barcodes[0]), number * times);
+  }
+
   private List<String> uniqueArray(List<String> cartBarcodes) {
     List<String> tempArray = new ArrayList<String>();
 
