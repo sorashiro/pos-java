@@ -13,7 +13,7 @@ public class App {
 
     PromotionServer promotionServer = new PromotionServer();
     List<PrintItem> printItemList = promotionServer.calculatePromotion(boughtItems);
-    System.out.println(printItemList);
+    Output.printShoppingList(printItemList);
   }
 
 }
