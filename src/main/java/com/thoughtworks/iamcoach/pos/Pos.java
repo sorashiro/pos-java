@@ -70,7 +70,7 @@ public class Pos {
   private Double calculateHalfPrice(BoughtItem boughtItem) {
     Double number = boughtItem.getNumber();
     Double total = boughtItem.getPrice() * number;
-    Double discountTotal = (0.5 * boughtItem.getPrice()) * (number / 2);
+    Double discountTotal = (0.5 * boughtItem.getPrice()) * (int)(number / 2);
 
     return total - discountTotal;
   }
