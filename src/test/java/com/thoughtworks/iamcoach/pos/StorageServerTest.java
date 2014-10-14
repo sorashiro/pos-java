@@ -17,4 +17,9 @@ public class StorageServerTest {
     public void get_cart_barcodes_test() {
         assertThat(storageServer.getCartBarcodes().size()).isEqualTo(9);
     }
+
+    @Test
+    public void get_promotions_test() {
+        assertThat(storageServer.getPromotions().size()).isEqualTo(9);
+    }
 }
