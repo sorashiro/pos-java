@@ -8,13 +8,14 @@ public class ItemServer {
 
   public Item findItem(String barcode) {
     List<Item> items = storageServer.getItems();
-    Item result = new Item();
 
+    Item result = new Item();
     for (Item item : items) {
       if (barcode.equals(item.getBarcode())) {
         result = item;
       }
     }
+    
     return result;
   }
 }
