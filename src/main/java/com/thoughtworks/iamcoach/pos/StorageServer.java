@@ -7,6 +7,7 @@ import java.util.List;
 
 public class StorageServer {
     private static final String ITEM_FILE = "src/main/resources/item.txt";
+    private static final String CART_FILE = "src/main/resources/cart.txt";
 
     public List<Item> getItems() {
         List<Item> arrayList = new ArrayList<Item>();
@@ -19,6 +20,10 @@ public class StorageServer {
             arrayList.add(item);
         }
         return arrayList;
+    }
+
+    public List<String> getCartBarcodes() {
+        return FileUtil.textToList(CART_FILE);
     }
 
 
