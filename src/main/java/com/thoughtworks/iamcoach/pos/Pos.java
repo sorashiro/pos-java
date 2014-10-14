@@ -9,6 +9,7 @@ public class Pos {
     List<BoughtItem> boughtItemList = new ArrayList<BoughtItem>();
     ItemServer itemServer = new ItemServer();
     List<String> uniqueBarcodes = uniqueArray(cartBarcodes);
+
     for (String uniqueBarcode : uniqueBarcodes) {
       int times = getBarcodeTimes(cartBarcodes, uniqueBarcode);
       String[] barcodes = uniqueBarcode.split("-");
@@ -25,6 +26,7 @@ public class Pos {
 
   private List<String> uniqueArray(List<String> cartBarcodes) {
     List<String> tempArray = new ArrayList<String>();
+
     for (String barcode : cartBarcodes) {
       if (!tempArray.contains(barcode)) {
         tempArray.add(barcode);
@@ -35,6 +37,7 @@ public class Pos {
 
   private int getBarcodeTimes(List<String> cartBarcodes, String barcode) {
     int result = 0;
+
     for (String cartBarcode : cartBarcodes) {
       if (cartBarcode.equals(barcode)) {
         result++;

@@ -7,7 +7,8 @@ public class PromotionServer {
   public String getPromotionType(String barcode) {
     List<Promotion> promotions = storageServer.getPromotions();
     String result = "";
-    for (Promotion promotion : promotions) {
+
+      for (Promotion promotion : promotions) {
       if (barcode.equals(promotion.getBarcode())) {
         result = promotion.getType();
       }
@@ -18,6 +19,7 @@ public class PromotionServer {
     public Double calculatePromotion(List<BoughtItem> boughtItems){
         PromotionServer promotionServer = new PromotionServer();
         Double result = 0.00;
+
         for (BoughtItem boughtItem : boughtItems) {
             String barcode = boughtItem.getBarcode();
             String promotionType = promotionServer.getPromotionType(barcode);
