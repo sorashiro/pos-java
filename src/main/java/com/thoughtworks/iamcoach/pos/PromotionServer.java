@@ -1,5 +1,6 @@
 package com.thoughtworks.iamcoach.pos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PromotionServer {
@@ -21,42 +22,45 @@ public class PromotionServer {
     return result;
   }
 
-  public Double calculatePromotion(List<BoughtItem> boughtItems) {
-    Double result = 0.00;
-
+  public List<PrintItem> calculatePromotion(List<BoughtItem> boughtItems) {
+    PrintItem result = new PrintItem();
+    List<PrintItem> printItemList = new ArrayList<PrintItem>();
     for (BoughtItem boughtItem : boughtItems) {
       String barcode = boughtItem.getBarcode();
       String promotionType = getPromotionType(barcode);
       if (promotionType.equals(BUY_TWO_GET_ONE_FREE)) {
-        result += calculateBuyTwo(boughtItem);
+        result = calculateBuyTwo(boughtItem);
       } else if (promotionType.equals(SECOND_HALF_PRICE)) {
-        result += calculateHalfPrice(boughtItem);
+        result = calculateHalfPrice(boughtItem);
       } else if (promotionType.contains(DISCOUNT)) {
-        result += calculateDiscount(boughtItem, promotionType);
+        result = calculateDiscount(boughtItem, promotionType);
       }
+        printItemList.add(result);
     }
-    return result;
+    return printItemList;
   }
 
-  private Double calculateBuyTwo(BoughtItem boughtItem) {
+
+  private PrintItem calculateBuyTwo(BoughtItem boughtItem) {
+
     Double number = boughtItem.getNumber();
     Double payNumber = number - (int) (number / 3);
-
-    return boughtItem.getPrice() * payNumber;
+    Double subtotal = boughtItem.getPrice() * payNumber;
+    return new PrintItem(boughtItem, subtotal);
   }
 
-  private Double calculateHalfPrice(BoughtItem boughtItem) {
+  private PrintItem calculateHalfPrice(BoughtItem boughtItem) {
     Double number = boughtItem.getNumber();
     Double total = boughtItem.getPrice() * number;
     Double discountTotal = (0.5 * boughtItem.getPrice()) * (int) (number / 2);
-
-    return total - discountTotal;
+    Double subtotal = total - discountTotal;
+    return new PrintItem(boughtItem, subtotal);
   }
 
-  private Double calculateDiscount(BoughtItem boughtItem, String typeInfo) {
+  private PrintItem calculateDiscount(BoughtItem boughtItem, String typeInfo) {
     Double number = boughtItem.getNumber();
     Double discount = Double.parseDouble(typeInfo.split(":")[1]);
-
-    return boughtItem.getPrice() * number * discount / 100;
+    Double subtotal = boughtItem.getPrice() * number * discount / 100;
+    return new PrintItem(boughtItem, subtotal);
   }
 }
