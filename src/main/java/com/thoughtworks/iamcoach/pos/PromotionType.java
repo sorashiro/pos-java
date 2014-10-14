@@ -1,4 +1,4 @@
 package com.thoughtworks.iamcoach.pos;
 
-public class PromotionType {
+public abstract class PromotionType {
 }
