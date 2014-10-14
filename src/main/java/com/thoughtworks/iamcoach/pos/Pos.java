@@ -24,11 +24,11 @@ public class Pos {
   }
 
   public Double calculatePromotion(List<BoughtItem> boughtItems){
-    Discount discount = new Discount();
+    PromotionServer promotionServer = new PromotionServer();
     Double result = 0.00;
     for (BoughtItem boughtItem : boughtItems) {
       String barcode = boughtItem.getBarcode();
-      String promotionType = discount.getPromotionType(barcode);
+      String promotionType = promotionServer.getPromotionType(barcode);
       if (promotionType.equals("buy_two_get_one_free")) {
         result += calculateBuyTwo(boughtItem);
       } else if (promotionType.equals("second_half_price")) {
