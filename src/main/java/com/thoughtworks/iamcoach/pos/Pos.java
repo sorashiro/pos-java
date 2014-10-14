@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Pos {
 
-  public List<BoughtItem> handleBarcodes(List<String> cartBarcodes){
+  public List<BoughtItem> handleBarcodes(List<String> cartBarcodes) {
     List<BoughtItem> boughtItemList = new ArrayList<BoughtItem>();
     ItemServer itemServer = new ItemServer();
     List<String> uniqueBarcodes = uniqueArray(cartBarcodes);

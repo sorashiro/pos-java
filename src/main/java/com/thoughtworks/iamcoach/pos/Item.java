@@ -6,7 +6,8 @@ public class Item {
   private String unit;
   private Double price;
 
-  public Item() {}
+  public Item() {
+  }
 
   public Item(String barcode, String name, String unit, Double price) {
     this.setBarcode(barcode);

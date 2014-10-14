@@ -4,8 +4,9 @@ import java.util.List;
 
 public class ItemServer {
 
-    StorageServer storageServer = new StorageServer();
-  public Item findItem(String barcode){
+  StorageServer storageServer = new StorageServer();
+
+  public Item findItem(String barcode) {
     List<Item> items = storageServer.getItems();
     Item result = new Item();
 
