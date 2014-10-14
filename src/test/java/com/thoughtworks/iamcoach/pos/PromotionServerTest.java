@@ -22,6 +22,6 @@ public class PromotionServerTest {
     boughtItems.add(new BoughtItem(item2, 3.00));
     boughtItems.add(new BoughtItem(item3, 2.00));
 
-    assertThat(promotionServer.calculatePromotion(boughtItems)).isEqualTo(65.00);
+    assertThat(promotionServer.calculatePromotion(boughtItems).size()).isEqualTo(3);
   }
 }
