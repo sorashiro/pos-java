@@ -5,7 +5,7 @@ import com.thoughtworks.iamcoach.pos.util.FileUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Discount {
+public class PromotionServer {
   private static final String DISCOUNT_FILE = "src/main/resources/discount_promotion.txt";
   private static final String BUY_TWO_GET_ONE_FREE_FILE = "src/main/resources/buy_two_get_one_free_promotion.txt";
   private static final String SECOND_HALF_PRICE_PROMOTION_FILE = "src/main/resources/second_half_price_promotion.txt";
