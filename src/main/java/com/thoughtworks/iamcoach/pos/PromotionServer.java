@@ -26,18 +26,7 @@ public class PromotionServer {
 
 
   private PrintItem doCalculate(BoughtItem boughtItem){
-    PrintItem result;
-    String promotionType = getPromotionType();
-    if (promotionType.equals(PromotionType.BUY_TWO_GET_ONE_FREE)) {
-      result = calculateBuyTwo(boughtItem);
-    } else if (promotionType.equals(PromotionType.SECOND_HALF_PRICE)) {
-      result = calculateHalfPrice(boughtItem);
-    } else if (promotionType.contains(PromotionType.DISCOUNT)) {
-      result = calculateDiscount(boughtItem, promotionType);
-    }else {
-      result = calculateBoughtItem(boughtItem);
-    }
-    return result;
+    return promotionType.doCalculate(boughtItem);
   }
 
   private PrintItem calculateBoughtItem(BoughtItem boughtItem) {
