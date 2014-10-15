@@ -17,7 +17,7 @@ public class Pos {
     return boughtItemList;
   }
 
-  private BoughtItem toBoughtItem(String cartBarcode, int times){
+  private BoughtItem toBoughtItem(String cartBarcode, int times) {
     ItemServer itemServer = new ItemServer();
     String[] barcodes = cartBarcode.split("-");
 

@@ -1,10 +1,12 @@
 package com.thoughtworks.iamcoach.pos;
 
-public class DiscountPromotion extends PromotionType{
+public class DiscountPromotion extends PromotionType {
   private String type;
-  public DiscountPromotion(String type){
+
+  public DiscountPromotion(String type) {
     this.type = type;
   }
+
   @Override
   String getPromotionType() {
     return type;

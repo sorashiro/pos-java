@@ -1,28 +1,30 @@
 package com.thoughtworks.iamcoach.pos;
 
 public class PrintItem {
-    private BoughtItem boughtItem;
-    private Double subtotal;
-    public PrintItem() {}
+  private BoughtItem boughtItem;
+  private Double subtotal;
 
-    public PrintItem(BoughtItem boughtItem, Double subtotal) {
-        this.setBoughtItem(boughtItem);
-        this.setSubtotal(subtotal);
-    }
+  public PrintItem() {
+  }
 
-    public BoughtItem getBoughtItem() {
-        return boughtItem;
-    }
+  public PrintItem(BoughtItem boughtItem, Double subtotal) {
+    this.setBoughtItem(boughtItem);
+    this.setSubtotal(subtotal);
+  }
 
-    public void setBoughtItem(BoughtItem boughtItem) {
-        this.boughtItem = boughtItem;
-    }
+  public BoughtItem getBoughtItem() {
+    return boughtItem;
+  }
 
-    public Double getSubtotal() {
-        return subtotal;
-    }
+  public void setBoughtItem(BoughtItem boughtItem) {
+    this.boughtItem = boughtItem;
+  }
 
-    public void setSubtotal(Double subtotal) {
-        this.subtotal = subtotal;
-    }
+  public Double getSubtotal() {
+    return subtotal;
+  }
+
+  public void setSubtotal(Double subtotal) {
+    this.subtotal = subtotal;
+  }
 }

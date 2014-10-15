@@ -6,7 +6,7 @@ import java.util.List;
 public class PromotionServer {
   private PromotionType promotionType;
 
-  public void setPromotionType(String barcode){
+  public void setPromotionType(String barcode) {
     this.promotionType = PromotionType.newType(barcode);
   }
 
@@ -21,7 +21,7 @@ public class PromotionServer {
     return printItemList;
   }
 
-  private PrintItem doCalculate(BoughtItem boughtItem){
+  private PrintItem doCalculate(BoughtItem boughtItem) {
     return promotionType.doCalculate(boughtItem);
   }
 

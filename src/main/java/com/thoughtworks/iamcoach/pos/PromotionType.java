@@ -4,12 +4,13 @@ import java.util.List;
 
 public abstract class PromotionType {
   abstract String getPromotionType();
+
   static final String BUY_TWO_GET_ONE_FREE = "buy_two_get_one_free";
   static final String SECOND_HALF_PRICE = "second_half_price";
   static final String DISCOUNT = "discount";
   static StorageServer storageServer = new StorageServer();
 
-  public static PromotionType newType (String barcode){
+  public static PromotionType newType(String barcode) {
     PromotionType promotionType = new SecondHalfPricePromotion();
     List<Promotion> promotions = storageServer.getPromotions();
 
@@ -20,12 +21,11 @@ public abstract class PromotionType {
         String[] typeArray = type.split(":");
 
 
-        if(typeArray[0].equals(BUY_TWO_GET_ONE_FREE)) {
+        if (typeArray[0].equals(BUY_TWO_GET_ONE_FREE)) {
           promotionType = new BuyTwoGetOneFreePromotion();
-        }else if(typeArray[0].equals(SECOND_HALF_PRICE)) {
+        } else if (typeArray[0].equals(SECOND_HALF_PRICE)) {
           promotionType = new SecondHalfPricePromotion();
-        }
-        else if(typeArray[0].equals(DISCOUNT)) {
+        } else if (typeArray[0].equals(DISCOUNT)) {
           promotionType = new DiscountPromotion(type);
         }
 
@@ -35,7 +35,7 @@ public abstract class PromotionType {
     return promotionType;
   }
 
-  public PrintItem doCalculate(BoughtItem boughtItem){
+  public PrintItem doCalculate(BoughtItem boughtItem) {
     Double subtotal = boughtItem.getPrice() * boughtItem.getNumber();
     return new PrintItem(boughtItem, subtotal);
   }
