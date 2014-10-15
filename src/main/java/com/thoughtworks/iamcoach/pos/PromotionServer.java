@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PromotionServer {
-  static final String BUY_TWO_GET_ONE_FREE = "buy_two_get_one_free";
-  static final String SECOND_HALF_PRICE = "second_half_price";
-  static final String DISCOUNT = "discount";
   private PromotionType promotionType;
   StorageServer storageServer = new StorageServer();
 
@@ -15,20 +12,7 @@ public class PromotionServer {
   }
 
   public void setPromotionType(String barcode){
-    List<Promotion> promotions = storageServer.getPromotions();
-    for (Promotion promotion : promotions) {
-      if (barcode.equals(promotion.getBarcode())) {
-          String type = promotion.getType();
-          if(type.equals(BUY_TWO_GET_ONE_FREE)) {
-            promotionType = new BuyTwoGetOneFreePromotion();
-          }else if(type.equals(SECOND_HALF_PRICE)) {
-            promotionType = new SecondHalfPricePromotion();
-          }
-        else if(type.equals(DISCOUNT)) {
-            promotionType = new DiscountPromition();
-          }
-      }
-    }
+    promotionType = PromotionType.newType(barcode);
   }
 
   public List<PrintItem> calculatePromotion(List<BoughtItem> boughtItems) {
@@ -46,11 +30,11 @@ public class PromotionServer {
   private PrintItem doCalculate(BoughtItem boughtItem){
     PrintItem result;
     String promotionType = getPromotionType();
-    if (promotionType.equals(BUY_TWO_GET_ONE_FREE)) {
+    if (promotionType.equals(PromotionType.BUY_TWO_GET_ONE_FREE)) {
       result = calculateBuyTwo(boughtItem);
-    } else if (promotionType.equals(SECOND_HALF_PRICE)) {
+    } else if (promotionType.equals(PromotionType.SECOND_HALF_PRICE)) {
       result = calculateHalfPrice(boughtItem);
-    } else if (promotionType.contains(DISCOUNT)) {
+    } else if (promotionType.contains(PromotionType.DISCOUNT)) {
       result = calculateDiscount(boughtItem, promotionType);
     }else {
       result = calculateBoughtItem(boughtItem);
