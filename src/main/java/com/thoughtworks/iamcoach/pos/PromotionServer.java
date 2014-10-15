@@ -24,28 +24,18 @@ public class PromotionServer {
   }
 
   public List<PrintItem> calculatePromotion(List<BoughtItem> boughtItems) {
-    PrintItem result = new PrintItem();
     List<PrintItem> printItemList = new ArrayList<PrintItem>();
     for (BoughtItem boughtItem : boughtItems) {
       String barcode = boughtItem.getBarcode();
       setPromotionType(barcode);
-      String promotionType = getPromotionType();
-      if (promotionType.equals(BUY_TWO_GET_ONE_FREE)) {
-        result = calculateBuyTwo(boughtItem);
-      } else if (promotionType.equals(SECOND_HALF_PRICE)) {
-        result = calculateHalfPrice(boughtItem);
-      } else if (promotionType.contains(DISCOUNT)) {
-        result = calculateDiscount(boughtItem, promotionType);
-      }
-        printItemList.add(result);
+      printItemList.add(doCalculate(boughtItem));
     }
     return printItemList;
   }
 
 
-  private List<PrintItem> doCalculate(BoughtItem boughtItem){
+  private PrintItem doCalculate(BoughtItem boughtItem){
     PrintItem result = new PrintItem();
-    List<PrintItem> printItemList = new ArrayList<PrintItem>();
     String promotionType = getPromotionType();
     if (promotionType.equals(BUY_TWO_GET_ONE_FREE)) {
       result = calculateBuyTwo(boughtItem);
@@ -54,8 +44,7 @@ public class PromotionServer {
     } else if (promotionType.contains(DISCOUNT)) {
       result = calculateDiscount(boughtItem, promotionType);
     }
-    printItemList.add(result);
-    return printItemList;
+    return result;
   }
 
 
