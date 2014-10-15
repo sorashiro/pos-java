@@ -5,8 +5,6 @@ import java.util.List;
 
 public class PromotionServer {
   private PromotionType promotionType;
-  StorageServer storageServer = new StorageServer();
-
   public String getPromotionType() {
     return promotionType.getPromotionType();
   }

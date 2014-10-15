@@ -4,6 +4,6 @@ public class DiscountPromition extends PromotionType{
 
   @Override
   String getPromotionType() {
-    return PromotionServer.DISCOUNT;
+    return PromotionType.DISCOUNT;
   }
 }
