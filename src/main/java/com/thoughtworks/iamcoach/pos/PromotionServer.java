@@ -43,6 +43,22 @@ public class PromotionServer {
   }
 
 
+  private List<PrintItem> doCalculate(BoughtItem boughtItem){
+    PrintItem result = new PrintItem();
+    List<PrintItem> printItemList = new ArrayList<PrintItem>();
+    String promotionType = getPromotionType();
+    if (promotionType.equals(BUY_TWO_GET_ONE_FREE)) {
+      result = calculateBuyTwo(boughtItem);
+    } else if (promotionType.equals(SECOND_HALF_PRICE)) {
+      result = calculateHalfPrice(boughtItem);
+    } else if (promotionType.contains(DISCOUNT)) {
+      result = calculateDiscount(boughtItem, promotionType);
+    }
+    printItemList.add(result);
+    return printItemList;
+  }
+
+
   private PrintItem calculateBuyTwo(BoughtItem boughtItem) {
 
     Double number = boughtItem.getNumber();
