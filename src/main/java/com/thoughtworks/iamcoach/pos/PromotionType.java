@@ -12,10 +12,14 @@ public abstract class PromotionType {
   public static PromotionType newType (String barcode){
     PromotionType promotionType = new SecondHalfPricePromotion();
     List<Promotion> promotions = storageServer.getPromotions();
+
     for (Promotion promotion : promotions) {
       if (barcode.equals(promotion.getBarcode())) {
+
         String type = promotion.getType();
         String[] typeArray = type.split(":");
+
+
         if(typeArray[0].equals(BUY_TWO_GET_ONE_FREE)) {
           promotionType = new BuyTwoGetOneFreePromotion();
         }else if(typeArray[0].equals(SECOND_HALF_PRICE)) {
@@ -24,8 +28,10 @@ public abstract class PromotionType {
         else if(typeArray[0].equals(DISCOUNT)) {
           promotionType = new DiscountPromition(type);
         }
+
       }
     }
+
     return promotionType;
   }
 
@@ -37,7 +43,7 @@ public abstract class PromotionType {
     } else if (promotionType.equals(PromotionType.SECOND_HALF_PRICE)) {
       result = calculateHalfPrice(boughtItem);
     } else if (promotionType.contains(PromotionType.DISCOUNT)) {
-      result = calculateDiscount(boughtItem, promotionType);
+      throw new RuntimeException("should be being overridden");
     }else {
       result = calculateBoughtItem(boughtItem);
     }
