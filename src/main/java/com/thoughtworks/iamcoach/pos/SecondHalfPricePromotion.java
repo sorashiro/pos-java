@@ -6,7 +6,7 @@ public class SecondHalfPricePromotion extends PromotionType {
     return PromotionType.SECOND_HALF_PRICE;
   }
 
-  public PrintItem doCalculate(BoughtItem boughtItem) {
+  public PrintItem calculate(BoughtItem boughtItem) {
     Double number = boughtItem.getNumber();
     Double total = boughtItem.getPrice() * number;
     Double discountTotal = (0.5 * boughtItem.getPrice()) * (int) (number / 2);

@@ -22,7 +22,7 @@ public class PromotionServer {
   }
 
   private PrintItem doCalculate(BoughtItem boughtItem) {
-    return promotionType.doCalculate(boughtItem);
+    return promotionType.calculate(boughtItem);
   }
 
 }

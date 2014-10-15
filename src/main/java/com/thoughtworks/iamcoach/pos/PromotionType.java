@@ -35,7 +35,7 @@ public abstract class PromotionType {
     return promotionType;
   }
 
-  public PrintItem doCalculate(BoughtItem boughtItem) {
+  public PrintItem calculate(BoughtItem boughtItem) {
     Double subtotal = boughtItem.getPrice() * boughtItem.getNumber();
     return new PrintItem(boughtItem, subtotal);
   }
