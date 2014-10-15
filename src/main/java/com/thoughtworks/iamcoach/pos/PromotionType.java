@@ -15,12 +15,13 @@ public abstract class PromotionType {
     for (Promotion promotion : promotions) {
       if (barcode.equals(promotion.getBarcode())) {
         String type = promotion.getType();
-        if(type.equals(BUY_TWO_GET_ONE_FREE)) {
+        String[] typeArray = type.split(":");
+        if(typeArray[0].equals(BUY_TWO_GET_ONE_FREE)) {
           promotionType = new BuyTwoGetOneFreePromotion();
-        }else if(type.equals(SECOND_HALF_PRICE)) {
+        }else if(typeArray[0].equals(SECOND_HALF_PRICE)) {
           promotionType = new SecondHalfPricePromotion();
         }
-        else if(type.contains(DISCOUNT)) {
+        else if(typeArray[0].equals(DISCOUNT)) {
           promotionType = new DiscountPromition(type);
         }
       }
