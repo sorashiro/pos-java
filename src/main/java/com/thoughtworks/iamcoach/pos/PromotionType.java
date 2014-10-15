@@ -41,7 +41,7 @@ public abstract class PromotionType {
     if (promotionType.equals(PromotionType.BUY_TWO_GET_ONE_FREE)) {
       throw new RuntimeException("should be being overridden");
     } else if (promotionType.equals(PromotionType.SECOND_HALF_PRICE)) {
-      result = calculateHalfPrice(boughtItem);
+      throw new RuntimeException("should be being overridden");
     } else if (promotionType.contains(PromotionType.DISCOUNT)) {
       throw new RuntimeException("should be being overridden");
     }else {
