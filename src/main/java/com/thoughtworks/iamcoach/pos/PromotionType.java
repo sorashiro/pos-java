@@ -10,7 +10,7 @@ public abstract class PromotionType {
   static StorageServer storageServer = new StorageServer();
 
   public static PromotionType newType (String barcode){
-    PromotionType promotionType = new DiscountPromition();
+    PromotionType promotionType = new SecondHalfPricePromotion();
     List<Promotion> promotions = storageServer.getPromotions();
     for (Promotion promotion : promotions) {
       if (barcode.equals(promotion.getBarcode())) {
@@ -20,8 +20,8 @@ public abstract class PromotionType {
         }else if(type.equals(SECOND_HALF_PRICE)) {
           promotionType = new SecondHalfPricePromotion();
         }
-        else if(type.equals(DISCOUNT)) {
-          promotionType = new DiscountPromition();
+        else if(type.contains(DISCOUNT)) {
+          promotionType = new DiscountPromition(type);
         }
       }
     }
