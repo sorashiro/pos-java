@@ -7,18 +7,26 @@ public class PromotionServer {
   static final String BUY_TWO_GET_ONE_FREE = "buy_two_get_one_free";
   static final String SECOND_HALF_PRICE = "second_half_price";
   static final String DISCOUNT = "discount";
-  private String promotionType = "none";
+  private PromotionType promotionType;
   StorageServer storageServer = new StorageServer();
 
   public String getPromotionType() {
-    return this.promotionType;
+    return promotionType.getPromotionType();
   }
 
   public void setPromotionType(String barcode){
     List<Promotion> promotions = storageServer.getPromotions();
     for (Promotion promotion : promotions) {
       if (barcode.equals(promotion.getBarcode())) {
-        this.promotionType = promotion.getType();
+          String type = promotion.getType();
+          if(type.equals(BUY_TWO_GET_ONE_FREE)) {
+            promotionType = new BuyTwoGetOneFreePromotion();
+          }else if(type.equals(SECOND_HALF_PRICE)) {
+            promotionType = new SecondHalfPricePromotion();
+          }
+        else if(type.equals(DISCOUNT)) {
+            promotionType = new DiscountPromition();
+          }
       }
     }
   }
