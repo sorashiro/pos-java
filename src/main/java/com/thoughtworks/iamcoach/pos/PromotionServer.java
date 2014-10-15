@@ -28,7 +28,7 @@ public class PromotionServer {
     for (BoughtItem boughtItem : boughtItems) {
 
       setPromotionType(boughtItem.getBarcode());
-      
+
       printItemList.add(doCalculate(boughtItem));
     }
     return printItemList;
@@ -36,7 +36,7 @@ public class PromotionServer {
 
 
   private PrintItem doCalculate(BoughtItem boughtItem){
-    PrintItem result = new PrintItem();
+    PrintItem result;
     String promotionType = getPromotionType();
     if (promotionType.equals(BUY_TWO_GET_ONE_FREE)) {
       result = calculateBuyTwo(boughtItem);
@@ -44,11 +44,16 @@ public class PromotionServer {
       result = calculateHalfPrice(boughtItem);
     } else if (promotionType.contains(DISCOUNT)) {
       result = calculateDiscount(boughtItem, promotionType);
+    }else {
+      result = calculateBoughtItem(boughtItem);
     }
     return result;
   }
 
-
+  private PrintItem calculateBoughtItem(BoughtItem boughtItem) {
+    Double subtotal = boughtItem.getPrice() * boughtItem.getNumber();
+    return new PrintItem(boughtItem, subtotal);
+  }
   private PrintItem calculateBuyTwo(BoughtItem boughtItem) {
 
     Double number = boughtItem.getNumber();
