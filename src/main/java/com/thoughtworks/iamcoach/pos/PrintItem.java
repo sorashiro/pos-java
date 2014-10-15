@@ -4,9 +4,6 @@ public class PrintItem {
   private BoughtItem boughtItem;
   private Double subtotal;
 
-  public PrintItem() {
-  }
-
   public PrintItem(BoughtItem boughtItem, Double subtotal) {
     this.setBoughtItem(boughtItem);
     this.setSubtotal(subtotal);
