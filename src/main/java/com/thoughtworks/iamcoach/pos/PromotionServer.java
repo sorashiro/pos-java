@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PromotionServer {
-  private static final String BUY_TWO_GET_ONE_FREE = "buy_two_get_one_free";
-  private static final String SECOND_HALF_PRICE = "second_half_price";
-  private static final String DISCOUNT = "discount";
+  static final String BUY_TWO_GET_ONE_FREE = "buy_two_get_one_free";
+  static final String SECOND_HALF_PRICE = "second_half_price";
+  static final String DISCOUNT = "discount";
   private String promotionType = "none";
   StorageServer storageServer = new StorageServer();
 
