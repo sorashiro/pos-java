@@ -7,19 +7,20 @@ public class PromotionServer {
   private static final String BUY_TWO_GET_ONE_FREE = "buy_two_get_one_free";
   private static final String SECOND_HALF_PRICE = "second_half_price";
   private static final String DISCOUNT = "discount";
-
+  private String promotionType = "none";
   StorageServer storageServer = new StorageServer();
 
-  public String getPromotionType(String barcode) {
-    List<Promotion> promotions = storageServer.getPromotions();
-    String result = "";
+  public String getPromotionType() {
+    return this.promotionType;
+  }
 
+  public void setPromotionType(String barcode){
+    List<Promotion> promotions = storageServer.getPromotions();
     for (Promotion promotion : promotions) {
       if (barcode.equals(promotion.getBarcode())) {
-        result = promotion.getType();
+        this.promotionType = promotion.getType();
       }
     }
-    return result;
   }
 
   public List<PrintItem> calculatePromotion(List<BoughtItem> boughtItems) {
@@ -27,7 +28,8 @@ public class PromotionServer {
     List<PrintItem> printItemList = new ArrayList<PrintItem>();
     for (BoughtItem boughtItem : boughtItems) {
       String barcode = boughtItem.getBarcode();
-      String promotionType = getPromotionType(barcode);
+      setPromotionType(barcode);
+      String promotionType = getPromotionType();
       if (promotionType.equals(BUY_TWO_GET_ONE_FREE)) {
         result = calculateBuyTwo(boughtItem);
       } else if (promotionType.equals(SECOND_HALF_PRICE)) {
