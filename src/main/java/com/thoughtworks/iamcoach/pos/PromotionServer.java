@@ -26,8 +26,9 @@ public class PromotionServer {
   public List<PrintItem> calculatePromotion(List<BoughtItem> boughtItems) {
     List<PrintItem> printItemList = new ArrayList<PrintItem>();
     for (BoughtItem boughtItem : boughtItems) {
-      String barcode = boughtItem.getBarcode();
-      setPromotionType(barcode);
+
+      setPromotionType(boughtItem.getBarcode());
+      
       printItemList.add(doCalculate(boughtItem));
     }
     return printItemList;
