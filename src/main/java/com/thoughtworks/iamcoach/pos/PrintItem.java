@@ -13,6 +13,10 @@ public class PrintItem {
     return boughtItem;
   }
 
+  public Item getItem() {
+    return boughtItem.getItem();
+  }
+
   public void setBoughtItem(BoughtItem boughtItem) {
     this.boughtItem = boughtItem;
   }
