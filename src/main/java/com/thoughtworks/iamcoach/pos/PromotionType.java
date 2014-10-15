@@ -26,7 +26,7 @@ public abstract class PromotionType {
           promotionType = new SecondHalfPricePromotion();
         }
         else if(typeArray[0].equals(DISCOUNT)) {
-          promotionType = new DiscountPromition(type);
+          promotionType = new DiscountPromotion(type);
         }
 
       }
