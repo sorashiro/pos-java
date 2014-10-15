@@ -36,18 +36,8 @@ public abstract class PromotionType {
   }
 
   public PrintItem doCalculate(BoughtItem boughtItem){
-    PrintItem result;
-    String promotionType = getPromotionType();
-    if (promotionType.equals(PromotionType.BUY_TWO_GET_ONE_FREE)) {
-      throw new RuntimeException("should be being overridden");
-    } else if (promotionType.equals(PromotionType.SECOND_HALF_PRICE)) {
-      throw new RuntimeException("should be being overridden");
-    } else if (promotionType.contains(PromotionType.DISCOUNT)) {
-      throw new RuntimeException("should be being overridden");
-    }else {
-      result = calculateBoughtItem(boughtItem);
-    }
-    return result;
+    Double subtotal = boughtItem.getPrice() * boughtItem.getNumber();
+    return new PrintItem(boughtItem, subtotal);
   }
 
   private PrintItem calculateBoughtItem(BoughtItem boughtItem) {
