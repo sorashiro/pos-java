@@ -3,8 +3,8 @@ package com.thoughtworks.iamcoach.pos;
 import java.util.List;
 
 public class PromotionType {
-  public String getPromotionType(){
-      return "";
+  public String getPromotionType() {
+    return "";
   }
 
   static final String BUY_TWO_GET_ONE_FREE = "buy_two_get_one_free";
@@ -27,20 +27,20 @@ public class PromotionType {
     return promotionType;
   }
 
-    private static PromotionType newPromotionByType(String type) {
-        PromotionType promotionType = new PromotionType();
-        String[] typeArray = type.split(":");
+  private static PromotionType newPromotionByType(String type) {
+    PromotionType promotionType = new PromotionType();
+    String[] typeArray = type.split(":");
 
-        if (typeArray[0].equals(BUY_TWO_GET_ONE_FREE)) {
-          promotionType = new BuyTwoGetOneFreePromotion();
-        } else if (typeArray[0].equals(SECOND_HALF_PRICE)) {
-          promotionType = new SecondHalfPricePromotion();
-        } else if (typeArray[0].equals(DISCOUNT)) {
-          promotionType = new DiscountPromotion(type);
-        }
-
-        return promotionType;
+    if (typeArray[0].equals(BUY_TWO_GET_ONE_FREE)) {
+      promotionType = new BuyTwoGetOneFreePromotion();
+    } else if (typeArray[0].equals(SECOND_HALF_PRICE)) {
+      promotionType = new SecondHalfPricePromotion();
+    } else if (typeArray[0].equals(DISCOUNT)) {
+      promotionType = new DiscountPromotion(type);
     }
+
+    return promotionType;
+  }
 
   public PrintItem calculate(BoughtItem boughtItem) {
     Double subtotal = boughtItem.getPrice() * boughtItem.getNumber();

@@ -25,23 +25,23 @@ public class PrintItem {
     this.subtotal = subtotal;
   }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getUnit() {
-        return unit;
-    }
+  public String getUnit() {
+    return unit;
+  }
 
-    public Double getPrice() {
-        return price;
-    }
+  public Double getPrice() {
+    return price;
+  }
 
-    public String getBarcode() {
-        return barcode;
-    }
+  public String getBarcode() {
+    return barcode;
+  }
 
-    public Double getNumber() {
-        return number;
-    }
+  public Double getNumber() {
+    return number;
+  }
 }
