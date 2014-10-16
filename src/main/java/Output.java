@@ -1,11 +1,14 @@
 import com.thoughtworks.iamcoach.pos.PrintItem;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Output {
     public static void printShoppingList(List<PrintItem> printItemList) {
-        Date date = new Date();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年MM月dd日 - HH:mm");
+        String date = formatter.format(LocalDateTime.now());
         String shoppingList = "**********沃尔玛超市**********\n";
         //TODO need to replace with guava;
         shoppingList += date + "\n\n";
