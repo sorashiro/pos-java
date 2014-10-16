@@ -13,10 +13,6 @@ public class BoughtItem {
     return item.getBarcode();
   }
 
-  private Item getItem() {
-    return item;
-  }
-
   public Double getPrice() {
     return item.getPrice();
   }

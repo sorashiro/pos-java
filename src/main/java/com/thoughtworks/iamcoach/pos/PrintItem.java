@@ -6,25 +6,15 @@ public class PrintItem {
   private Double price;
   private String barcode;
   private Double number;
-  private BoughtItem boughtItem;
   private Double subtotal;
 
   public PrintItem(BoughtItem boughtItem, Double subtotal) {
-    this.setBoughtItem(boughtItem);
     this.setSubtotal(subtotal);
     this.name = boughtItem.getName();
     this.unit = boughtItem.getUnit();
     this.price = boughtItem.getPrice();
     this.barcode = boughtItem.getBarcode();
     this.number = boughtItem.getNumber();
-  }
-
-  private BoughtItem getBoughtItem() {
-    return boughtItem;
-  }
-
-  public void setBoughtItem(BoughtItem boughtItem) {
-    this.boughtItem = boughtItem;
   }
 
   public Double getSubtotal() {
