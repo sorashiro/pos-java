@@ -13,6 +13,7 @@ public class ItemServer {
     for (Item item : items) {
       if (barcode.equals(item.getBarcode())) {
         result = item;
+        break;
       }
     }
 
