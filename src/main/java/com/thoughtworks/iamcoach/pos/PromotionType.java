@@ -2,8 +2,10 @@ package com.thoughtworks.iamcoach.pos;
 
 import java.util.List;
 
-public abstract class PromotionType {
-  abstract String getPromotionType();
+public class PromotionType {
+  public String getPromotionType(){
+      return "";
+  }
 
   static final String BUY_TWO_GET_ONE_FREE = "buy_two_get_one_free";
   static final String SECOND_HALF_PRICE = "second_half_price";
