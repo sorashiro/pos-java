@@ -7,7 +7,7 @@ public class PromotionServer {
   private PromotionType promotionType;
 
   public void setPromotionType(String barcode) {
-    this.promotionType = PromotionType.newType(barcode);
+    this.promotionType = PromotionType.newPromotionType(barcode);
   }
 
   public List<PrintItem> calculatePromotion(List<BoughtItem> boughtItems) {

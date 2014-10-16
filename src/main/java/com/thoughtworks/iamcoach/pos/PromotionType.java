@@ -12,7 +12,7 @@ public class PromotionType {
   static final String DISCOUNT = "discount";
   static StorageServer storageServer = new StorageServer();
 
-  public static PromotionType newType(String barcode) {
+  public static PromotionType newPromotionType(String barcode) {
     PromotionType promotionType = new SecondHalfPricePromotion();
     List<Promotion> promotions = storageServer.getPromotions();
 
