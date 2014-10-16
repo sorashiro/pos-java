@@ -15,6 +15,7 @@ public class DiscountPromotion extends PromotionType {
   public PrintItem calculate(BoughtItem boughtItem) {
     Double number = boughtItem.getNumber();
     Double discount = Double.parseDouble(type.split(":")[1]);
+
     Double subtotal = boughtItem.getPrice() * number * discount / 100;
     return new PrintItem(boughtItem, subtotal);
   }
