@@ -12,9 +12,9 @@ public class Output {
         String shoppingList = "**********沃尔玛超市**********\n";
         shoppingList += date + "\n\n";
         shoppingList += getShoppingListBody(printItemList);
-        shoppingList += "优惠前金额:" + getSum(printItemList) + "元 \n";
-        shoppingList += "优惠后金额:" + getTotal(printItemList) + "元 \n";
-        shoppingList += "优惠差价:" +
+        shoppingList += "优惠前金额: " + getSum(printItemList) + "元 \n";
+        shoppingList += "优惠后金额: " + getTotal(printItemList) + "元 \n";
+        shoppingList += "优惠差价: " +
                 (getSum(printItemList) - getTotal(printItemList)) + "元";
 
         System.out.println(shoppingList);
@@ -32,7 +32,7 @@ public class Output {
     private static Double getSum(List<PrintItem> printItemList) {
         Double sum = 0.00;
         for (PrintItem printItem : printItemList) {
-            sum += printItem.getSubtotal();
+            sum += printItem.getPrice() * printItem.getNumber();
         }
 
         return sum;
