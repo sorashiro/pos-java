@@ -8,7 +8,7 @@ public class DiscountPromotion extends PromotionType {
   }
 
   @Override
-  String getPromotionType() {
+  public String getPromotionType() {
     return type;
   }
 
