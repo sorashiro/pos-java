@@ -20,17 +20,7 @@ public class PromotionType {
       if (barcode.equals(promotion.getBarcode())) {
 
         String type = promotion.getType();
-        String[] typeArray = type.split(":");
-
-
-        if (typeArray[0].equals(BUY_TWO_GET_ONE_FREE)) {
-          promotionType = new BuyTwoGetOneFreePromotion();
-        } else if (typeArray[0].equals(SECOND_HALF_PRICE)) {
-          promotionType = new SecondHalfPricePromotion();
-        } else if (typeArray[0].equals(DISCOUNT)) {
-          promotionType = new DiscountPromotion(type);
-        }
-
+        promotionType = newPromotionByType(type);
       }
     }
 
@@ -40,6 +30,7 @@ public class PromotionType {
     private static PromotionType newPromotionByType(String type) {
         PromotionType promotionType = new PromotionType();
         String[] typeArray = type.split(":");
+
         if (typeArray[0].equals(BUY_TWO_GET_ONE_FREE)) {
           promotionType = new BuyTwoGetOneFreePromotion();
         } else if (typeArray[0].equals(SECOND_HALF_PRICE)) {
@@ -47,6 +38,7 @@ public class PromotionType {
         } else if (typeArray[0].equals(DISCOUNT)) {
           promotionType = new DiscountPromotion(type);
         }
+
         return promotionType;
     }
 
