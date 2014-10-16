@@ -15,14 +15,9 @@ public class PromotionServer {
     for (BoughtItem boughtItem : boughtItems) {
 
       setPromotionType(boughtItem.getBarcode());
-      System.out.println(promotionType);
-      printItemList.add(doCalculate(boughtItem));
+      printItemList.add(promotionType.calculate(boughtItem));
     }
     return printItemList;
-  }
-
-  private PrintItem doCalculate(BoughtItem boughtItem) {
-    return promotionType.calculate(boughtItem);
   }
 
 }
