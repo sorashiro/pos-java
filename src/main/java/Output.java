@@ -12,13 +12,13 @@ public class Output {
         Double total = 0.00;
         Double sum = 0.00;
         for (PrintItem printItem : printItemList) {
-            shoppingList += printItem.getItem().getName() + " ";
-            shoppingList += printItem.getBoughtItem().getNumber();
-            shoppingList += printItem.getItem().getUnit() + " ";
-            shoppingList += printItem.getItem().getPrice() + "元 ";
+            shoppingList += printItem.getName() + " ";
+            shoppingList += printItem.getNumber();
+            shoppingList += printItem.getUnit() + " ";
+            shoppingList += printItem.getPrice() + "元 ";
             shoppingList += printItem.getSubtotal() + "元\n";
             total += printItem.getSubtotal();
-            sum += printItem.getBoughtItem().getNumber() * printItem.getItem().getPrice();
+            sum += printItem.getNumber() * printItem.getPrice();
         }
         shoppingList += "优惠前金额:" + sum + "元 \n";
         shoppingList += "优惠后金额:" + total + "元 \n";

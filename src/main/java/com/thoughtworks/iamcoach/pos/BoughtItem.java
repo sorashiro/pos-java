@@ -13,7 +13,7 @@ public class BoughtItem {
     return item.getBarcode();
   }
 
-  public Item getItem() {
+  private Item getItem() {
     return item;
   }
 
@@ -25,5 +25,12 @@ public class BoughtItem {
     return number;
   }
 
+  public String getName() {
+      return item.getName();
+  }
+
+  public String getUnit() {
+      return item.getUnit();
+  }
 
 }
