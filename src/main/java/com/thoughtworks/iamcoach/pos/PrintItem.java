@@ -3,12 +3,12 @@ package com.thoughtworks.iamcoach.pos;
 public class PrintItem {
   private String name;
   private String unit;
-  private Double price;
+  private double price;
   private String barcode;
-  private Double number;
-  private Double subtotal;
+  private double number;
+  private double subtotal;
 
-  public PrintItem(BoughtItem boughtItem, Double subtotal) {
+  public PrintItem(BoughtItem boughtItem, double subtotal) {
     this.setSubtotal(subtotal);
     this.name = boughtItem.getName();
     this.unit = boughtItem.getUnit();
@@ -17,11 +17,11 @@ public class PrintItem {
     this.number = boughtItem.getNumber();
   }
 
-  public Double getSubtotal() {
+  public double getSubtotal() {
     return subtotal;
   }
 
-  public void setSubtotal(Double subtotal) {
+  public void setSubtotal(double subtotal) {
     this.subtotal = subtotal;
   }
 
@@ -33,7 +33,7 @@ public class PrintItem {
     return unit;
   }
 
-  public Double getPrice() {
+  public double getPrice() {
     return price;
   }
 
@@ -41,7 +41,7 @@ public class PrintItem {
     return barcode;
   }
 
-  public Double getNumber() {
+  public double getNumber() {
     return number;
   }
 }

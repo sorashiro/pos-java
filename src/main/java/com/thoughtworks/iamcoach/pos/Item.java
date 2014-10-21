@@ -4,12 +4,12 @@ public class Item {
   private String barcode;
   private String name;
   private String unit;
-  private Double price;
+  private double price;
 
   public Item() {
   }
 
-  public Item(String barcode, String name, String unit, Double price) {
+  public Item(String barcode, String name, String unit, double price) {
     this.setBarcode(barcode);
     this.setName(name);
     this.setUnit(unit);
@@ -40,11 +40,11 @@ public class Item {
     this.unit = unit;
   }
 
-  public Double getPrice() {
+  public double getPrice() {
     return price;
   }
 
-  public void setPrice(Double price) {
+  public void setPrice(double price) {
     this.price = price;
   }
 }

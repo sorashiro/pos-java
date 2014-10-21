@@ -7,12 +7,12 @@ public class SecondHalfPricePromotion extends PromotionType {
   }
 
   public PrintItem calculate(BoughtItem boughtItem) {
-    Double number = boughtItem.getNumber();
+    double number = boughtItem.getNumber();
 
-    Double total = boughtItem.getPrice() * number;
-    Double discountTotal = (0.5 * boughtItem.getPrice()) * (int) (number / 2);
+    double total = boughtItem.getPrice() * number;
+    double discountTotal = (0.5 * boughtItem.getPrice()) * (int) (number / 2);
 
-    Double subtotal = total - discountTotal;
+    double subtotal = total - discountTotal;
     return new PrintItem(boughtItem, subtotal);
   }
 }

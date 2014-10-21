@@ -2,9 +2,9 @@ package com.thoughtworks.iamcoach.pos;
 
 public class BoughtItem {
   private Item item;
-  private Double number;
+  private double number;
 
-  public BoughtItem(Item item, Double number) {
+  public BoughtItem(Item item, double number) {
     this.item = item;
     this.number = number;
   }
@@ -13,11 +13,11 @@ public class BoughtItem {
     return item.getBarcode();
   }
 
-  public Double getPrice() {
+  public double getPrice() {
     return item.getPrice();
   }
 
-  public Double getNumber() {
+  public double getNumber() {
     return number;
   }
 

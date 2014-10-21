@@ -8,10 +8,10 @@ public class BuyTwoGetOneFreePromotion extends PromotionType {
 
   public PrintItem calculate(BoughtItem boughtItem) {
 
-    Double number = boughtItem.getNumber();
-    Double payNumber = number - (int) (number / 3);
+    double number = boughtItem.getNumber();
+    double payNumber = number - (int) (number / 3);
 
-    Double subtotal = boughtItem.getPrice() * payNumber;
+    double subtotal = boughtItem.getPrice() * payNumber;
     return new PrintItem(boughtItem, subtotal);
   }
 }
